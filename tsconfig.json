@@ -44,6 +44,7 @@
     "paths": {
       "@/*": ["./*"],
       "@hispanic-ui": ["./components/ui"],
+      "@hispanic-page-ui": ["./components/page"],
       "@hispanic-forms": ["./components/forms"]
     }
   },

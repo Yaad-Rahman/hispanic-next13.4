@@ -9,6 +9,7 @@ export const classes = {
     dark: 'text-primary-900',
     mediumDark: 'text-primary-800',
     lightGray: 'text-gray-600',
+    white: 'text-white',
     noStyle: '',
   },
 };

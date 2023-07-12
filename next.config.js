@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    dirs: ["."],
+    dirs: ['.'],
   },
   poweredByHeader: false,
   trailingSlash: false,
-  basePath: "",
+  basePath: '',
   reactStrictMode: true,
 };
 

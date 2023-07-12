@@ -8,7 +8,7 @@ export const classes = {
     large: '',
   },
   variant: {
-    black: 'bg-button-primary text-white hover:bg-white hover:text-gray-600',
+    black: 'bg-button-primary text-white hover:bg-primary-800',
     white: 'bg-white text-primary-900 hover:bg-primary-900 hover:text-white',
     outlined:
       'border border-primary-300 text-white hover:border-primary-700 hover:text-primary-700',

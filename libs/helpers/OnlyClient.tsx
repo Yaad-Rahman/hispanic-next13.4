@@ -10,7 +10,7 @@ export default function OnlyClient({
   const [isClient, setIsClient] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsClient(false);
+    setIsClient(true);
   }, []);
 
   return (
@@ -18,8 +18,8 @@ export default function OnlyClient({
       {isClient ? (
         children
       ) : (
-        <div className="flex justify-center">
-          <Loader className="h-10 w-10" />
+        <div className="mt-5 flex justify-center">
+          <Loader variant="black" />
         </div>
       )}
     </React.Fragment>
