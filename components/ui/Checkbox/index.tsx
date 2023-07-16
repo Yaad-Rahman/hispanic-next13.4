@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { classes } from './styles';
 import type { CheckboxType } from './types';
 
-export const Checkbox = ({ label, name, onChange }: CheckboxType) => {
+export const Checkbox = ({ label }: CheckboxType) => {
   const randomPrefix = useMemo(
     () => Math.random().toString(36).substring(7),
     []
@@ -13,6 +13,7 @@ export const Checkbox = ({ label, name, onChange }: CheckboxType) => {
 
   return (
     <div className="flex items-center gap-2">
+      <h1>{label}</h1>
       <input
         className={classes.checkbox}
         type="checkbox"

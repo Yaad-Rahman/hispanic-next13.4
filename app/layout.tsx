@@ -2,6 +2,7 @@ import './globals.css';
 
 import { Kanit, Lexend } from 'next/font/google';
 
+import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 
 const kanit = Kanit({
@@ -32,9 +33,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${kanit.variable} ${lexend.variable}`}>
-      <body className="bg-LoginBg bg-no-repeat font-kanitFont">
+      <body className="bg-secondary-400 bg-no-repeat font-kanitFont">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,7 +1,10 @@
 export const classes = {
+  weight: (w: string) => {
+    return `font-${w}`;
+  },
   size: {
     small: 'text-sm',
-    medium: 'text-base leading-6',
+    medium: 'text-base',
     large: 'sm:text-lg text-sm',
     xl: 'sm:text-xl text-base',
   },

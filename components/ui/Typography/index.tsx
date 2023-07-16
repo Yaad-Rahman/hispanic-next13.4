@@ -7,6 +7,7 @@ import type { TypographyProps } from './types';
 export const Typography = ({
   children,
   size = 'medium',
+  weight = 'normal',
   variant = 'mediumDark',
   className = '',
   lexend = false,
@@ -17,6 +18,7 @@ export const Typography = ({
       className={clsx(
         center && 'text-center',
         lexend && 'font-lexendFont',
+        classes.weight(weight),
         classes.size[size],
         classes.variant[variant],
         className
