@@ -13,7 +13,7 @@ export const classes = {
   },
   level: {
     0: '',
-    0.5: 'sm:text-6xl text-3xl',
+    0.5: 'sm:text-6xl-hd text-3xl',
     1: 'sm:text-6xl text-3xl',
     2: 'sm:text-5xl text-2xl',
     3: 'sm:text-3xl text-xl',

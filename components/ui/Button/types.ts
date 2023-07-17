@@ -4,7 +4,7 @@ export type ButtonProps = {
   label: string | undefined;
   loading?: boolean;
   size?: 'xs' | 'small' | 'medium' | 'large';
-  variant: 'black' | 'white' | 'outlined' | 'text';
+  variant: 'black' | 'white' | 'blue' | 'text';
   className?: string;
   startIcon?: JSX.Element | undefined;
   fullWidth?: boolean;

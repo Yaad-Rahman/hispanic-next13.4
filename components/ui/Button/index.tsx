@@ -41,7 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {loading ? (
             <Loader className="h-6 w-6 text-blue-500" />
           ) : (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               {startIcon && <div>{startIcon}</div>}
               {label && <span className="whitespace-nowrap">{label}</span>}
             </div>

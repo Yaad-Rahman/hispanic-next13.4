@@ -57,6 +57,9 @@ module.exports = {
         },
         LoginBg: '#F2EAEC',
       },
+      fontSize: {
+        '6xl-hd': ['56px', '72px'],
+      },
       fontFamily: {
         kanitFont: ['var(--font-kanit)'],
         lexendFont: ['var(--font-lexend)'],

@@ -1,13 +1,25 @@
+'use client';
+
+import { CarouselSlider } from '@hispanic-ui';
+
+import { Container } from '@/components/layout/Container';
+
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <div
+        className="h-[850px] w-full pt-[176px]"
         style={{
-          backgroundImage: 'url("/images/homepage/headerBg.svg")',
+          backgroundImage: "url('/images/homepage/headerBg.svg')",
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         }}
-      ></div>
+      >
+        <Container>
+          <CarouselSlider />
+        </Container>
+      </div>
     </main>
   );
 }
