@@ -19,7 +19,7 @@ export const Footer = () => {
         <div className="grid grid-cols-6">
           <div className="col-span-2">
             <img
-              src="/logos/main.png"
+              src="/logos/logo.svg"
               alt="logo"
               className="h-[96px] w-[96px]"
             />

@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 
 const kanit = Kanit({
-  weight: ['700', '600'],
+  weight: ['700', '600', '500', '400'],
   style: ['normal'],
   subsets: ['latin'],
   display: 'swap',
@@ -14,7 +14,7 @@ const kanit = Kanit({
 });
 
 const lexend = Lexend({
-  weight: ['600', '500', '300'],
+  weight: ['600', '500', '400', '300'],
   style: 'normal',
   subsets: ['latin'],
   display: 'swap',

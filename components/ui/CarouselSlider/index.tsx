@@ -10,7 +10,18 @@ import { Typography } from '../Typography';
 export const CarouselSlider = () => {
   const settings = {
     dots: true,
-    appendDots: (dots: any) => <div className="mt-20 bg-white">{dots}</div>,
+    // appendDots: (dots: any) => {
+    //   return (
+    //     <div>
+    //       <ul>
+    //         {dots.map((item, index) => {
+    //           return <li key={index}>{item.props.children}</li>;
+    //         })}
+    //       </ul>
+    //     </div>
+    //   );
+    // },
+    dotsClass: 'slick-dots',
     infinite: true,
     speed: 500,
     slidesToShow: 1,

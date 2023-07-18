@@ -10,10 +10,14 @@ export const Heading = ({
   weight = 'bold',
   className = '',
   color = 'dark',
+  lexend = false,
+  center = false,
 }: HeadingProps) => {
   return (
     <h2
       className={clsx(
+        center && 'text-center',
+        lexend && 'font-lexendFont',
         classes.color[color],
         classes.level[level],
         classes.fontWeight[weight],

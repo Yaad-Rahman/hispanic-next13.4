@@ -9,8 +9,8 @@ export const classes = {
     xl: 'sm:text-xl text-base',
   },
   variant: {
-    dark: 'text-primary-900',
-    mediumDark: 'text-primary-800',
+    dark: 'text-textColor-dark',
+    medium: 'text-textColor-medium',
     lightGray: 'text-gray-600',
     white: 'text-white',
     noStyle: '',

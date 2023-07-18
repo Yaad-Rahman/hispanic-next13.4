@@ -1,5 +1,6 @@
 'use client';
 
+import { SocialMedia } from '@hispanic-page-ui';
 import { CarouselSlider } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
@@ -17,9 +18,12 @@ export default function Home() {
         }}
       >
         <Container>
-          <CarouselSlider />
+          <div className="h-[500px]">
+            <CarouselSlider />
+          </div>
         </Container>
       </div>
+      <SocialMedia />
     </main>
   );
 }

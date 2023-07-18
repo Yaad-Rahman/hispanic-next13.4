@@ -52,8 +52,13 @@ module.exports = {
           800: '#44371C',
           900: '#292111',
         },
+        textColor: {
+          dark: '#0F1419',
+          medium: '#536471',
+        },
         button: {
           primary: '#6E2C3B',
+          blue: '#0095F6',
         },
         LoginBg: '#F2EAEC',
       },

@@ -8,7 +8,7 @@ export const Typography = ({
   children,
   size = 'medium',
   weight = 'normal',
-  variant = 'mediumDark',
+  variant = 'dark',
   className = '',
   lexend = false,
   center = false,
