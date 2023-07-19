@@ -55,6 +55,7 @@ module.exports = {
         textColor: {
           dark: '#0F1419',
           medium: '#536471',
+          lightPink: '#945967',
         },
         button: {
           primary: '#6E2C3B',

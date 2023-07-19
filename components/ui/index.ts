@@ -1,5 +1,9 @@
 export { Button } from './Button';
-export { Card } from './Card';
+export { EventCard } from './Card/EventCard';
+export { FacebookCard } from './Card/FacebookCard';
+export { InstagramCard } from './Card/InstagramCard';
+export { NewsCard } from './Card/NewsCard';
+export { TwitterCard } from './Card/TwitterCard';
 export { CarouselSlider } from './CarouselSlider';
 export { Checkbox } from './Checkbox';
 export { Header } from './Header';

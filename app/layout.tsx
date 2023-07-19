@@ -14,7 +14,7 @@ const kanit = Kanit({
 });
 
 const lexend = Lexend({
-  weight: ['600', '500', '400', '300'],
+  weight: ['700', '600', '500', '400', '300'],
   style: 'normal',
   subsets: ['latin'],
   display: 'swap',

@@ -1,9 +1,10 @@
 'use client';
 
-import { SocialMedia } from '@hispanic-page-ui';
+import { LatestNews, SocialMedia, UpcomingEvents } from '@hispanic-page-ui';
 import { CarouselSlider } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
+import { DJCorner } from '@/components/page/homepage/DJCorner';
 
 export default function Home() {
   return (
@@ -24,6 +25,9 @@ export default function Home() {
         </Container>
       </div>
       <SocialMedia />
+      <UpcomingEvents />
+      <LatestNews />
+      <DJCorner />
     </main>
   );
 }

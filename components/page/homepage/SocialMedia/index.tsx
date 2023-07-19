@@ -1,4 +1,9 @@
-import { Card, Heading } from '@hispanic-ui';
+import {
+  FacebookCard,
+  Heading,
+  InstagramCard,
+  TwitterCard,
+} from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
 
@@ -12,8 +17,10 @@ export const SocialMedia = () => {
         <Heading level={2.5} color="white" lexend className="mt-3" center>
           Social Media
         </Heading>
-        <div className="mt-16">
-          <Card />
+        <div className="mt-16 grid grid-cols-3 gap-8">
+          <TwitterCard />
+          <FacebookCard />
+          <InstagramCard />
         </div>
       </Container>
     </div>

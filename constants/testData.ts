@@ -112,4 +112,40 @@ const FooterIcons = [
   },
 ];
 
-export { FooterIcons, FooterLegal, FooterSocial, NavMenus };
+const UpcomingEventsData = [
+  {
+    eventName: 'Hispanic Society Borica Bash',
+    eventImage: '/test/boricaBash.svg',
+    date: '20 Dec 2022',
+    time: '11am - 5pm',
+    address: '79  Alvion AVC Queens, NYC',
+    isFree: false,
+    price: '$100',
+  },
+  {
+    eventName: '3rd Annual Autism Awareness Event',
+    eventImage: '/test/autismAwareness.svg',
+    date: '20 Dec 2022',
+    time: '11am - 5pm',
+    address: 'Domino Park',
+    isFree: true,
+    price: '$100',
+  },
+  {
+    eventName: 'Springtime in the City',
+    eventImage: '/test/springtime.svg',
+    date: '20 Dec 2022',
+    time: '11am - 5pm',
+    address: '299 Vandervoort AVE, BK, NY',
+    isFree: false,
+    price: '$50',
+  },
+];
+
+// const LatestNewsData = [
+//   {
+
+//   }
+// ]
+
+export { FooterIcons, FooterLegal, FooterSocial, NavMenus, UpcomingEventsData };
