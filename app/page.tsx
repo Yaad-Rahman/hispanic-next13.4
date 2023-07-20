@@ -1,6 +1,11 @@
 'use client';
 
-import { LatestNews, SocialMedia, UpcomingEvents } from '@hispanic-page-ui';
+import {
+  LatestNews,
+  Memories,
+  SocialMedia,
+  UpcomingEvents,
+} from '@hispanic-page-ui';
 import { CarouselSlider } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
@@ -28,6 +33,7 @@ export default function Home() {
       <UpcomingEvents />
       <LatestNews />
       <DJCorner />
+      <Memories />
     </main>
   );
 }
