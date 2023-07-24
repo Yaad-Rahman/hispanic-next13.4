@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  ContactUs,
   LatestNews,
   Memories,
   SocialMedia,
@@ -15,7 +16,7 @@ export default function Home() {
   return (
     <main>
       <div
-        className="h-[850px] w-full pt-[176px]"
+        className="aspect-[1440/798] w-full pt-[176px]"
         style={{
           backgroundImage: "url('/images/homepage/headerBg.svg')",
           backgroundPosition: 'center',
@@ -34,6 +35,7 @@ export default function Home() {
       <LatestNews />
       <DJCorner />
       <Memories />
+      <ContactUs />
     </main>
   );
 }

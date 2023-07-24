@@ -142,10 +142,60 @@ const UpcomingEventsData = [
   },
 ];
 
-// const LatestNewsData = [
-//   {
+const MemoriesData = [
+  {
+    id: 1,
+    image: '/test/mem1.svg',
+  },
+  {
+    id: 2,
+    image: '/test/mem2.svg',
+  },
+  {
+    id: 3,
+    image: '/test/mem3.svg',
+  },
+  {
+    id: 4,
+    image: '/test/mem4.svg',
+  },
+  {
+    id: 5,
+    image: '/test/mem5.svg',
+  },
+  {
+    id: 6,
+    image: '/test/mem6.svg',
+  },
+];
 
-//   }
-// ]
+const GetInTouchData = [
+  {
+    icon: '/logos/featured-email.svg',
+    title: 'Email',
+    subTitle: 'Our friendly team is here to help.',
+    description: 'contact@hispanicsociety.org',
+  },
+  {
+    icon: '/logos/featured-exclamatory.svg',
+    title: 'Office',
+    subTitle: 'Come say hello at our office HQ.',
+    description: 'P.O. Box 110202, Brooklyn, NY',
+  },
+  {
+    icon: '/logos/featured-phone.svg',
+    title: 'Phone',
+    subTitle: 'Mon-Fri from 8am to 5pm.',
+    description: '+1 (555) 000-0000',
+  },
+];
 
-export { FooterIcons, FooterLegal, FooterSocial, NavMenus, UpcomingEventsData };
+export {
+  FooterIcons,
+  FooterLegal,
+  FooterSocial,
+  GetInTouchData,
+  MemoriesData,
+  NavMenus,
+  UpcomingEventsData,
+};

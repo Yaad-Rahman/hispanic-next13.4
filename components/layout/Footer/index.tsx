@@ -14,7 +14,13 @@ import { Container } from '../Container';
 
 export const Footer = () => {
   return (
-    <div className="bg-gradient-to-t from-[#421B26] to-transparent py-16">
+    <div
+      className="py-16"
+      style={{
+        background:
+          'linear-gradient(360deg, #431A24 50%, rgba(67, 26, 36, 0.00) 185%),  #081F3F',
+      }}
+    >
       <Container>
         <div className="grid grid-cols-6">
           <div className="col-span-2">
