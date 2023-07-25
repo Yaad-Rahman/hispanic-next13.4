@@ -1,31 +1,37 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import type { Settings } from 'react-slick';
 import Slider from 'react-slick';
 
 import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Typography } from '../Typography';
+import { classes } from './styles';
+
+const PrevButton = (props: any) => (
+  <div {...props} className={classes.arrowDivLeft}>
+    <ChevronLeftIcon className={classes.arrowButton} />
+  </div>
+);
+
+const NextButton = (props: any) => (
+  <div {...props} className={classes.arrowDivRight}>
+    <ChevronRightIcon className={classes.arrowButton} />
+  </div>
+);
 
 export const CarouselSlider = () => {
-  const settings = {
+  const settings: Settings = {
     dots: true,
-    // appendDots: (dots: any) => {
-    //   return (
-    //     <div>
-    //       <ul>
-    //         {dots.map((item, index) => {
-    //           return <li key={index}>{item.props.children}</li>;
-    //         })}
-    //       </ul>
-    //     </div>
-    //   );
-    // },
-    dotsClass: 'slick-dots',
+    dotsClass: 'slick-dots mt-[20px]',
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    prevArrow: <PrevButton />,
+    nextArrow: <NextButton />,
   };
 
   return (

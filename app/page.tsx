@@ -25,7 +25,7 @@ export default function Home() {
         }}
       >
         <Container>
-          <div className="h-[500px]">
+          <div className="h-[500px] px-20">
             <CarouselSlider />
           </div>
         </Container>

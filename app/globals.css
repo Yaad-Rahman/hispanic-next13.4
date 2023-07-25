@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* slick carousel */
+.slick-dots {
+ width: fit-content !important;
+ bottom: -100px !important;
+ left: 46%;
+ @apply bg-gray-600;
+ @apply rounded-2xl;
+
+}
+
+.slick-dots li {
+  margin: 7px 5px !important;
+}
+
+.slick-dots li button:before {
+ font-size: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: white !important;
+}
