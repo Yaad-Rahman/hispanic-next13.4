@@ -16,11 +16,7 @@ export default function LoginPage() {
       </Typography>
       <OnlyClient>
         <div className="mt-8 w-[360px]">
-          <LoginForm
-            onSubmit={() => {
-              console.log('form submitted');
-            }}
-          />
+          <LoginForm onSubmit={() => {}} />
         </div>
       </OnlyClient>
     </div>

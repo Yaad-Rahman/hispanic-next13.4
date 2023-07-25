@@ -19,7 +19,7 @@ export const Checkbox = ({ label }: CheckboxType) => {
         type="checkbox"
         id={id}
         name="vehicle1"
-        onChange={(e) => console.log('checkbox', e)}
+        onChange={() => {}}
       />
       <label htmlFor={id} className={classes.label}>
         I have a bike

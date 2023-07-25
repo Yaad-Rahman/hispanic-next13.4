@@ -52,7 +52,7 @@ export const LoginForm = ({ onSubmit }: FormProps) => {
               <Checkbox
                 label="Remember for 30 days"
                 name="remember"
-                onChange={() => console.log('hello')}
+                onChange={() => {}}
               />
               <Button type="button" label="Forgot password" variant="text" />
             </div>
