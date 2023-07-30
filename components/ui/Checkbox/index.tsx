@@ -13,7 +13,6 @@ export const Checkbox = ({ label }: CheckboxType) => {
 
   return (
     <div className="flex items-center gap-2">
-      <h1>{label}</h1>
       <input
         className={classes.checkbox}
         type="checkbox"
@@ -22,7 +21,7 @@ export const Checkbox = ({ label }: CheckboxType) => {
         onChange={(e) => console.log('checkbox', e)}
       />
       <label htmlFor={id} className={classes.label}>
-        I have a bike
+        {label}
       </label>
     </div>
   );

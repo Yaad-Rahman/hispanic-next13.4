@@ -14,7 +14,7 @@ import { EventCategories, UpcomingEventsData } from '@/constants/testData';
 
 export default function Events() {
   return (
-    <div className="mt-defaultPadding">
+    <div className="pt-defaultPadding">
       <img src="/images/homepage/flagRope.svg" alt="flags" className="w-full" />
       <Container>
         <div className="mt-24">
