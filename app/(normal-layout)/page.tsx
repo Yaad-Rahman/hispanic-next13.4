@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main>
       <div
-        className="aspect-[1440/798] w-full pt-[176px]"
+        className="aspect-[1440/798] w-full pt-defaultPadding"
         style={{
           backgroundImage: "url('/images/homepage/headerBg.svg')",
           backgroundPosition: 'center',
