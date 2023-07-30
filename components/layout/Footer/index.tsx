@@ -9,16 +9,21 @@ import {
   FooterSocial,
   NavMenus,
 } from '@/constants/testData';
+import { useHeaderFooter } from '@/hooks/useHeaderFooter';
 
 import { Container } from '../Container';
+import { classes } from './styles';
 
 export const Footer = () => {
+  const { getVariant } = useHeaderFooter();
   return (
     <div
       className="py-16"
       style={{
         background:
-          'linear-gradient(360deg, #431A24 50%, rgba(67, 26, 36, 0.00) 185%),  #081F3F',
+          getVariant() === 'red'
+            ? classes.backgroundColor.red
+            : classes.backgroundColor.blue,
       }}
     >
       <Container>

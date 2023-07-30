@@ -190,7 +190,10 @@ const GetInTouchData = [
   },
 ];
 
+const EventCategories = ['Upcoming', 'Past'];
+
 export {
+  EventCategories,
   FooterIcons,
   FooterLegal,
   FooterSocial,

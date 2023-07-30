@@ -1,15 +1,25 @@
 'use client';
 
 import { Button } from '@hispanic-ui';
+import clsx from 'clsx';
 import Link from 'next/link';
 
 import { NavMenus } from '@/constants/testData';
+import { useHeaderFooter } from '@/hooks/useHeaderFooter';
 
 import { Container } from '../Container';
+import { classes } from './styles';
 
 export const Navbar = () => {
+  const { getVariant } = useHeaderFooter();
   return (
-    <div className="fixed left-0 top-0 z-[1000] w-full bg-gradient-to-b from-primary-900 to-transparent py-2">
+    <div
+      className={clsx(
+        'fixed left-0 top-0 z-[1000] w-full py-2',
+        getVariant() === 'red' && classes.background.red,
+        getVariant() === 'blue' && classes.background.blue
+      )}
+    >
       <Container>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-10">
