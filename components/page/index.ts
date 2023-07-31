@@ -1,3 +1,4 @@
+export { ImageCards } from './board/ImageCards';
 export { ContactUs } from './homepage/ContactUs';
 export { LatestNews } from './homepage/LatestNews';
 export { Memories } from './homepage/Memories';

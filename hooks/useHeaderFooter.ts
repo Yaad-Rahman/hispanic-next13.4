@@ -7,6 +7,8 @@ export const useHeaderFooter = () => {
     switch (pathName) {
       case '/':
         return 'red';
+      case '/board':
+        return 'red';
       default:
         return 'blue';
     }

@@ -192,7 +192,33 @@ const GetInTouchData = [
 
 const EventCategories = ['Upcoming', 'Past'];
 
+const BoardMembers = {
+  executive: [
+    {
+      name: 'Joseph Ayala',
+      designation: 'President',
+      profilePhoto: '/test/joseph-board.svg',
+    },
+    {
+      name: 'Angel Ayala',
+      designation: '2nd Vice President',
+      profilePhoto: '/test/ayala-board.svg',
+    },
+    {
+      name: 'Laurie Martinez',
+      designation: 'Secretary',
+      profilePhoto: '/test/laurie-board.svg',
+    },
+    {
+      name: 'Arnaldo Rivera',
+      designation: 'Recording Secretary',
+      profilePhoto: '/test/rivera-board.svg',
+    },
+  ],
+};
+
 export {
+  BoardMembers,
   EventCategories,
   FooterIcons,
   FooterLegal,
