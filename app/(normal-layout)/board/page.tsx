@@ -10,7 +10,7 @@ export default function Board() {
     <div>
       <div className="aspect-[1574/695] w-full bg-[url('/images/board/board-bg.svg')] bg-cover bg-center bg-no-repeat py-28 pt-defaultPadding">
         <Container>
-          <div className="ml-24 w-[538px]">
+          <div className="sm:ml-24 sm:w-[538px]">
             <Heading level={0.5} color="white" className="!tracking-[-1.12px]">
               NYPD Hispanic Society Board 2023
             </Heading>

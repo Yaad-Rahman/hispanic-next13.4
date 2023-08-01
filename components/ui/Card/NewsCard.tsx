@@ -27,6 +27,8 @@ export const NewsCard = () => {
           variant="noStyle"
           weight="semibold"
           className="text-secondary-100"
+          size="medium"
+          lexend
         >
           Llanina Rosalia Medina (Nina) has worked for San Diego Police
           department for over 29 years. Throughout her career she has worked in

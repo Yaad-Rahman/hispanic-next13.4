@@ -2,6 +2,7 @@
 export { Button } from './Button';
 export { EventCard } from './Card/EventCard';
 export { FacebookCard } from './Card/FacebookCard';
+export { ImageCard } from './Card/ImageCard';
 export { InstagramCard } from './Card/InstagramCard';
 export { NewsCard } from './Card/NewsCard';
 export { TwitterCard } from './Card/TwitterCard';

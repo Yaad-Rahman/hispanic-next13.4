@@ -217,6 +217,45 @@ const BoardMembers = {
   ],
 };
 
+const MemoriesPageData = [
+  {
+    title: 'Hispanic Society Borica',
+    image: '/test/hispanic.svg',
+  },
+  {
+    title: 'Boricua Bash',
+    image: '/test/boricua-bash.svg',
+  },
+  {
+    title: 'Springtime in the City',
+    image: '/test/spring-time.svg',
+  },
+  {
+    title: 'Hispanic Society Borica',
+    image: '/test/hispanic.svg',
+  },
+  {
+    title: 'Boricua Bash',
+    image: '/test/boricua-bash.svg',
+  },
+  {
+    title: 'Springtime in the City',
+    image: '/test/spring-time.svg',
+  },
+  {
+    title: 'Hispanic Society Borica',
+    image: '/test/hispanic.svg',
+  },
+  {
+    title: 'Boricua Bash',
+    image: '/test/boricua-bash.svg',
+  },
+  {
+    title: 'Springtime in the City',
+    image: '/test/spring-time.svg',
+  },
+];
+
 export {
   BoardMembers,
   EventCategories,
@@ -225,6 +264,7 @@ export {
   FooterSocial,
   GetInTouchData,
   MemoriesData,
+  MemoriesPageData,
   NavMenus,
   UpcomingEventsData,
 };

@@ -1,12 +1,24 @@
 import { Typography } from '@hispanic-ui';
+import clsx from 'clsx';
+import { useCallback } from 'react';
 
 import { BoardMembers } from '@/constants/testData';
 
 export const ImageCards = () => {
+  const colStart = useCallback((index: number, length: number) => {
+    if (length % 4 <= 3 && length < 3 && index % 2 === 0) return 'col-start-2';
+    return '';
+  }, []);
   return (
-    <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-4">
-      {BoardMembers.executive.map((member, index) => (
-        <div key={index} className="relative h-[352px]">
+    <div className="grid grid-cols-1 justify-center gap-x-8 gap-y-10 sm:grid-cols-4">
+      {BoardMembers.executive.map((member, index, memberArray) => (
+        <div
+          key={index}
+          className={clsx(
+            'relative h-[352px]',
+            colStart(index, memberArray.length)
+          )}
+        >
           <img
             src={member.profilePhoto}
             alt="profile"

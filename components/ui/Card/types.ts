@@ -7,3 +7,10 @@ export type EventCardType = {
   isFree: boolean;
   price: string;
 };
+
+export type ImageCardType = {
+  title: string;
+  subTitle?: string;
+  image: string;
+  height?: number;
+};
