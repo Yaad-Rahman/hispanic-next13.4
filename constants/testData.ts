@@ -256,6 +256,44 @@ const MemoriesPageData = [
   },
 ];
 
+const LinksPageData = [
+  {
+    logo: '/test/dea-logo.svg',
+    title: 'DEA',
+    description:
+      'The Detectives’ Endowment Association website has current and important information to provide any member the rank of Detective 3, 2, 1 and Specialist.',
+    link: 'www.nycdetectives.org',
+  },
+  {
+    logo: '/test/sba-logo.svg',
+    title: 'SBA',
+    description:
+      'Sergeants Benevolent Association website has current and important information to provide any member the rank of Sergeant.',
+    link: 'www.sbanypd.nyc',
+  },
+  {
+    logo: '/test/lba-logo.svg',
+    title: 'LBA',
+    description:
+      'Lieutenants Benevolent Association website is a private member-only website. The content on this website is reserved for the sole use of our members.',
+    link: 'www.nypd-lba.org/',
+  },
+  {
+    logo: '/test/cea-logo.svg',
+    title: 'CEA',
+    description:
+      'Captains Endowment Association website has current and important information to provide any member the rank of Captain.',
+    link: 'www.nypdcea.org',
+  },
+  {
+    logo: '/test/dea-logo-gold.svg',
+    title: 'GHI',
+    description:
+      'The GHI Comprehensive Benefits Plan (CBP) gives you the freedom to choose in-network or out-of-network doctors. View doctors according to your NYPD plan.',
+    link: 'www.nypd-lba.org/',
+  },
+];
+
 export {
   BoardMembers,
   EventCategories,
@@ -263,6 +301,7 @@ export {
   FooterLegal,
   FooterSocial,
   GetInTouchData,
+  LinksPageData,
   MemoriesData,
   MemoriesPageData,
   NavMenus,

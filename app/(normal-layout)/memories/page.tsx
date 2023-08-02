@@ -14,8 +14,8 @@ import { EventCategories, MemoriesPageData } from '@/constants/testData';
 
 export default function Memories() {
   return (
-    <div className="pt-defaultPadding">
-      <div className='w-full bg-[url("/images/wallpapers/memories-bg.png")] bg-cover bg-no-repeat pb-24'>
+    <div className="bg-[#1A1D37] pt-defaultPadding">
+      <div className='aspect-[1440/2209] min-h-[2600px] w-full bg-[url("/images/wallpapers/memories-bg.png")] bg-cover bg-no-repeat pb-24'>
         <Container>
           <div className="mt-24">
             <div className="flex items-center justify-between pr-1">

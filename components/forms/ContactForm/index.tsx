@@ -3,13 +3,13 @@
 import { Button, Checkbox, Input, Typography } from '@hispanic-ui';
 import { Formik } from 'formik';
 
-import { LoginFormInitialValues, validationSchema } from './dataValidation';
+import { ContactFormInitialValues, validationSchema } from './dataValidation';
 import type { FormProps } from './types';
 
-export const LoginForm = ({ onSubmit }: FormProps) => {
+export const ContactForm = ({ onSubmit }: FormProps) => {
   return (
     <Formik
-      initialValues={LoginFormInitialValues}
+      initialValues={ContactFormInitialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
@@ -22,11 +22,11 @@ export const LoginForm = ({ onSubmit }: FormProps) => {
         isSubmitting,
       }) => (
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 gap-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <Input
-              name="email"
-              label="Email"
-              placeholder="Enter email"
+              name="firstName"
+              label="First name"
+              placeholder="First name"
               onChange={handleChange}
               value={values.email}
               isDirty={touched.email}
@@ -35,19 +35,30 @@ export const LoginForm = ({ onSubmit }: FormProps) => {
               }
             />
             <Input
-              name="password"
-              label="Password"
-              type="password"
-              placeholder="Enter password"
+              name="lastName"
+              label="Last name"
+              placeholder="Last name"
               onChange={handleChange}
-              value={values.password}
-              isDirty={touched.password}
+              value={values.email}
+              isDirty={touched.email}
               validationError={
-                touched.password && errors.password
-                  ? errors.password
-                  : undefined
+                touched.email && errors.email ? errors.email : undefined
               }
             />
+            <div className="col-span-2">
+              <Input
+                name="email"
+                label="Email"
+                placeholder="Enter email"
+                onChange={handleChange}
+                value={values.email}
+                isDirty={touched.email}
+                validationError={
+                  touched.email && errors.email ? errors.email : undefined
+                }
+              />
+            </div>
+
             <div className="flex justify-between">
               <Checkbox
                 label="Remember for 30 days"

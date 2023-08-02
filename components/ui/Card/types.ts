@@ -14,3 +14,10 @@ export type ImageCardType = {
   image: string;
   height?: number;
 };
+
+export type LinkCardType = {
+  logo: string;
+  title: string;
+  description: string;
+  link: string;
+};

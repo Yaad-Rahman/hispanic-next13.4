@@ -27,7 +27,7 @@ export const Footer = () => {
       default:
         return classes.backgroundColor.blue;
     }
-  }, []);
+  }, [getVariant]);
 
   return (
     <div

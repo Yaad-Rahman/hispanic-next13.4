@@ -1,32 +1,45 @@
 import { Heading, Typography } from '@hispanic-ui';
+import clsx from 'clsx';
 
 import { Container } from '@/components/layout/Container';
 import { GetInTouchData } from '@/constants/testData';
 
-export const ContactUs = () => {
+export const ContactUs = ({ forPage }: { forPage: 'home' | 'contact' }) => {
+  const isForHome = forPage === 'home';
   return (
     <div
       className="py-24"
       style={{
-        background:
-          'linear-gradient(180deg, #431A24 50%, rgba(67, 26, 36, 0.00) 185%),  #081F3F',
+        background: isForHome
+          ? 'linear-gradient(180deg, #431A24 50%, rgba(67, 26, 36, 0.00) 185%),  #081F3F'
+          : 'linear-gradient(360deg, #081F3F 1.04%, rgba(67, 26, 36, 0.66) 43.23%, rgba(67, 26, 36, 0.00) 100%)',
       }}
     >
       <Container>
-        <Typography
-          weight="bold"
-          lexend
-          variant="noStyle"
-          className="text-primary-100"
-        >
-          Contact Us
-        </Typography>
+        {isForHome && (
+          <Typography
+            weight="bold"
+            lexend
+            variant="noStyle"
+            className="text-primary-100"
+          >
+            Contact Us
+          </Typography>
+        )}
 
         <Heading level={2.5} color="white" lexend className="mt-3">
-          Get in touch
+          {isForHome ? 'Get in touch' : 'Contact us'}
         </Heading>
 
-        <Heading level={5} color="noStyle" className="mt-5 text-primary-100">
+        <Heading
+          level={5}
+          color="noStyle"
+          className={clsx(
+            'mt-5',
+            isForHome && 'text-primary-100',
+            !isForHome && 'text-purple-200'
+          )}
+        >
           Reach out to the NYPDHS - Our Friendly Team Is Here to Help
         </Heading>
 
@@ -46,7 +59,10 @@ export const ContactUs = () => {
                     {getintouch.title}
                   </Typography>
                   <Typography
-                    className="mt-2 text-primary-100"
+                    className={clsx(
+                      isForHome && 'text-primary-100',
+                      !isForHome && 'text-purple-200'
+                    )}
                     weight="bold"
                     lexend
                     variant="noStyle"

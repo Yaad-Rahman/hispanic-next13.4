@@ -35,7 +35,7 @@ export default function Home() {
       <LatestNews />
       <DJCorner />
       <Memories />
-      <ContactUs />
+      <ContactUs forPage="home" />
     </main>
   );
 }
