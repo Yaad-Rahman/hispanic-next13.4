@@ -3,8 +3,8 @@
 import { Button, Checkbox, Input, Typography } from '@hispanic-ui';
 import { Formik } from 'formik';
 
+import { LoginFormInitialValues, validationSchema } from './dataValidation';
 import type { FormProps } from './types';
-import { LoginFormInitialValues, validationSchema } from './validationData';
 
 export const LoginForm = ({ onSubmit }: FormProps) => {
   return (

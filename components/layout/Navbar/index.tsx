@@ -18,7 +18,8 @@ export const Navbar = () => {
     <div
       className={clsx(
         'fixed left-0 top-0 z-[1000] w-full py-2',
-        getVariant() === 'red' && classes.background.red,
+        (getVariant() === 'red' || getVariant() === 'red-blue') &&
+          classes.background.red,
         getVariant() === 'blue' && classes.background.blue
       )}
     >

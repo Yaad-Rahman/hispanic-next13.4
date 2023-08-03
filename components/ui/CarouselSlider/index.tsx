@@ -42,7 +42,13 @@ export const CarouselSlider = () => {
             <Heading level={0.5} color="white" className="!tracking-[-1.12px]">
               Welcome to the NYPD Hispanic Society
             </Heading>
-            <Typography size="xl" variant="white" className="mt-6" lexend>
+            <Typography
+              weight="bold"
+              size="xl"
+              variant="white"
+              className="mt-6"
+              lexend
+            >
               PAZ Y UNIDAD | EMBRACING OUR GENTE, RAICES AND IDENTITIES TO
               DEFINE THE FUTURE
             </Typography>

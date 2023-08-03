@@ -2,6 +2,7 @@
 
 import { Typography } from '@hispanic-ui';
 import Link from 'next/link';
+import { useCallback } from 'react';
 
 import {
   FooterIcons,
@@ -16,14 +17,23 @@ import { classes } from './styles';
 
 export const Footer = () => {
   const { getVariant } = useHeaderFooter();
+
+  const getFooterColor = useCallback(() => {
+    switch (getVariant()) {
+      case 'red':
+        return classes.backgroundColor.red;
+      case 'blue':
+        return classes.backgroundColor.blue;
+      default:
+        return classes.backgroundColor.blue;
+    }
+  }, [getVariant]);
+
   return (
     <div
       className="py-16"
       style={{
-        background:
-          getVariant() === 'red'
-            ? classes.backgroundColor.red
-            : classes.backgroundColor.blue,
+        background: getFooterColor(),
       }}
     >
       <Container>

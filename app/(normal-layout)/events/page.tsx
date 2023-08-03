@@ -51,14 +51,13 @@ export default function Events() {
             />
           ))}
         </div>
-
-        <Pagination
-          currentPage={2}
-          onPageChange={() => {}}
-          pageSize={5}
-          totalCount={50}
-        />
       </Container>
+      <Pagination
+        currentPage={2}
+        onPageChange={() => {}}
+        pageSize={5}
+        totalCount={50}
+      />
       <img
         src="/images/homepage/event-down.svg"
         alt="design"

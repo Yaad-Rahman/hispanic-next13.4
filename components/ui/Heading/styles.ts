@@ -15,11 +15,11 @@ export const classes = {
     0: '',
     0.5: 'sm:text-6xl-hd text-3xl',
     1: 'sm:text-6xl text-3xl',
-    2: 'sm:text-5xl text-2xl',
-    2.5: 'sm:text-4xl text-2xl',
-    3: 'sm:text-3xl text-xl',
-    4: 'sm:text-2xl text-lg',
-    5: 'text-xl',
-    6: 'text-lg',
+    2: 'sm:text-5xl text-2xl', // 48px
+    2.5: 'sm:text-4xl text-2xl', // 36px
+    3: 'sm:text-3xl text-xl', // 30px
+    4: 'sm:text-2xl text-lg', // 24px
+    5: 'text-xl', // 20px
+    6: 'text-lg', // 18px
   },
 };
