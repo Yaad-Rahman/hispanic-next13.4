@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { classes } from './styles';
 import type { CheckboxType } from './types';
 
-export const Checkbox = ({ label }: CheckboxType) => {
+export const Checkbox = ({ label, labelClassname }: CheckboxType) => {
   const randomPrefix = useMemo(
     () => Math.random().toString(36).substring(7),
     []
@@ -18,9 +18,9 @@ export const Checkbox = ({ label }: CheckboxType) => {
         type="checkbox"
         id={id}
         name="vehicle1"
-        onChange={(e) => console.log('checkbox', e)}
+        onChange={() => {}}
       />
-      <label htmlFor={id} className={classes.label}>
+      <label htmlFor={id} className={labelClassname || classes.label}>
         {label}
       </label>
     </div>

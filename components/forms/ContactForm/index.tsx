@@ -1,6 +1,13 @@
 'use client';
 
-import { Button, Checkbox, Input, Typography } from '@hispanic-ui';
+import {
+  Button,
+  Checkbox,
+  Input,
+  Link,
+  PhoneNumberInput,
+  Textarea,
+} from '@hispanic-ui';
 import { Formik } from 'formik';
 
 import { ContactFormInitialValues, validationSchema } from './dataValidation';
@@ -22,7 +29,7 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
         isSubmitting,
       }) => (
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Input
               name="firstName"
               label="First name"
@@ -59,30 +66,57 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
               />
             </div>
 
-            <div className="flex justify-between">
-              <Checkbox
-                label="Remember for 30 days"
-                name="remember"
-                onChange={() => console.log('hello')}
+            <div className="col-span-2">
+              <PhoneNumberInput
+                name="phone"
+                label="Phone number"
+                // placeholder="Enter email"
+                onChange={() => {}}
+                value={values.email}
+                // isDirty={touched.email}
+                // validationError={
+                //   touched.email && errors.email ? errors.email : undefined
+                // }
               />
-              <Button type="button" label="Forgot password" variant="text" />
+            </div>
+            <div className="col-span-2">
+              <Textarea
+                name="message"
+                label="Message"
+                placeholder="Leave us a message..."
+                onChange={handleChange}
+                rows={4}
+                value={values.message}
+                isDirty={touched.message}
+                validationError={
+                  touched.message && errors.message ? errors.message : undefined
+                }
+              />
+            </div>
+            <div className="col-span-2 flex items-center gap-1">
+              <Checkbox
+                labelClassname="text-gray-500 font-lexendFont"
+                label="You agree to our friendly"
+                name="remember"
+                onChange={() => {}}
+              />
+              <Link
+                href="#"
+                className="font-lexendFont text-gray-500 underline"
+              >
+                privacy policy
+              </Link>
             </div>
           </div>
           <Button
-            loading={true}
-            className="mt-5"
-            label="Submit"
+            loading={false}
+            className="mt-8"
+            label="Send message"
             variant="black"
             type="submit"
             disabled={isSubmitting}
             fullWidth
           />
-          <div className="mt-8 flex justify-center gap-1">
-            <Typography size="small" variant="lightGray" lexend>
-              Don’t have an account?
-            </Typography>
-            <Button type="button" label="Sign up" variant="text" />
-          </div>
         </form>
       )}
     </Formik>

@@ -4,13 +4,21 @@ import { Container } from '@/components/layout/Container';
 import { EventCard } from '@/components/ui/Card/EventCard';
 import { UpcomingEventsData } from '@/constants/testData';
 
-export const UpcomingEvents = () => {
+export const UpcomingEvents = ({
+  forEventPage,
+}: {
+  forEventPage?: boolean;
+}) => {
   return (
     <div
-      style={{
-        background:
-          'linear-gradient(360deg, #431A24 0%, rgba(67, 26, 36, 0.00) 100%), #081F3F',
-      }}
+      style={
+        forEventPage
+          ? {
+              background:
+                'linear-gradient(360deg, #431A24 0%, rgba(67, 26, 36, 0.00) 100%), #081F3F',
+            }
+          : undefined
+      }
     >
       <img
         src="/images/homepage/flagRope.svg"

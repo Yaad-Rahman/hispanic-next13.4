@@ -2,24 +2,30 @@ import { Button, Heading, NewsCard } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
 
-export const LatestNews = () => {
+export const LatestNews = ({ forNewspage }: { forNewspage?: boolean }) => {
   return (
     <div
-      className="aspect-[1440/943] w-full pt-24"
-      style={{
-        backgroundImage: 'url("/images/homepage/newsBg.svg")',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-      }}
+      className={`aspect-[1440/943] w-full ${
+        forNewspage ? 'pb-24 pt-16' : 'pt-24'
+      }`}
+      style={
+        forNewspage
+          ? undefined
+          : {
+              backgroundImage: 'url("/images/homepage/newsBg.svg")',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+            }
+      }
     >
       <Container>
         <Heading level={5} color="white">
-          Acknowledgement
+          {forNewspage ? 'News' : 'Acknowledgement'}
         </Heading>
         <div className="flex justify-between">
           <Heading level={2.5} color="white" lexend className="mt-3">
-            Latest News and Acknowledgements
+            {forNewspage ? 'Latest News' : 'Latest News and Acknowledgements'}
           </Heading>
           <Button label="View all" variant="black" />
         </div>

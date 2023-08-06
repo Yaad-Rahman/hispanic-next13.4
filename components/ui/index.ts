@@ -16,5 +16,8 @@ export { Heading } from './Heading';
 export { Input } from './Input';
 export { Link } from './Link';
 export { Pagination } from './Pagination';
+export { PhoneNumberInput } from './PhoneInput';
 export { ScreenResizer } from './ScreenResizer';
+export { SocialShare } from './SocialShare';
+export { Textarea } from './Textarea';
 export { Typography } from './Typography';
