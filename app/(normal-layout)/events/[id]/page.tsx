@@ -1,6 +1,7 @@
 'use client';
 
 import { CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { BookTicket, UpcomingEvents } from '@hispanic-page-ui';
 import { Heading, Typography } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
@@ -15,8 +16,8 @@ export default function SingleEvent() {
       }}
     >
       <Container>
-        <div className="flex justify-between">
-          <div className="basis-3/4">
+        <div className="flex gap-10">
+          <div className="basis-8/12">
             <Heading level={2} weight="normal" color="white">
               Hispanic Society Borica Bash
             </Heading>
@@ -60,8 +61,13 @@ export default function SingleEvent() {
               src="/test/event-location.svg"
               alt="event location"
             />
+            <div className="my-24">
+              <UpcomingEvents forEventPage />
+            </div>
           </div>
-          <div className="basis-1/4">the ticket section</div>
+          <div className="basis-4/12">
+            <BookTicket />
+          </div>
         </div>
       </Container>
     </div>

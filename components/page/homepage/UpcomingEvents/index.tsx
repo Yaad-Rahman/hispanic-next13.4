@@ -1,4 +1,5 @@
 import { Button, Heading } from '@hispanic-ui';
+import clsx from 'clsx';
 
 import { Container } from '@/components/layout/Container';
 import { EventCard } from '@/components/ui/Card/EventCard';
@@ -12,7 +13,7 @@ export const UpcomingEvents = ({
   return (
     <div
       style={
-        forEventPage
+        !forEventPage
           ? {
               background:
                 'linear-gradient(360deg, #431A24 0%, rgba(67, 26, 36, 0.00) 100%), #081F3F',
@@ -20,11 +21,14 @@ export const UpcomingEvents = ({
           : undefined
       }
     >
-      <img
-        src="/images/homepage/flagRope.svg"
-        alt="flags"
-        className="w-full py-24"
-      />
+      {!forEventPage && (
+        <img
+          src="/images/homepage/flagRope.svg"
+          alt="flags"
+          className="w-full py-24"
+        />
+      )}
+
       <Container>
         <Heading level={5} color="white">
           Events
@@ -35,7 +39,13 @@ export const UpcomingEvents = ({
           </Heading>
           <Button label="View all" variant="black" />
         </div>
-        <div className="mt-16 grid grid-cols-3 gap-8">
+        <div
+          className={clsx(
+            'mt-16 grid grid-cols-1 gap-8',
+            !forEventPage && 'sm:grid-cols-3',
+            forEventPage && 'sm:grid-cols-2'
+          )}
+        >
           {UpcomingEventsData.map((event, index) => (
             <EventCard
               address={event.address}
@@ -50,11 +60,13 @@ export const UpcomingEvents = ({
           ))}
         </div>
       </Container>
-      <img
-        src="/images/homepage/event-down.svg"
-        alt="down style"
-        className="w-full pt-24"
-      />
+      {!forEventPage && (
+        <img
+          src="/images/homepage/event-down.svg"
+          alt="down style"
+          className="w-full pt-24"
+        />
+      )}
     </div>
   );
 };
