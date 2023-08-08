@@ -12,6 +12,8 @@ export const classes = {
     white: 'bg-white text-primary-900 hover:bg-primary-900 hover:text-white',
     blue: 'bg-secondary-400 text-white hover:bg-secondary-600',
     lightBlue: 'bg-button-blue text-white hover:bg-blue-400',
+    outlined:
+      'border border-primary-200 text-primary-500 hover:border-primary-700 hover:text-primary-700',
     text: 'font-lexendFont text-sm font-semibold text-button-primary hover:text-primary-700 transition-all',
     disabled: 'bg-primary-200 text-primary-800',
   },

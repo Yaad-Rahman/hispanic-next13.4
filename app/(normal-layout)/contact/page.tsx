@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <div className="pt-14">
       <ContactUs forPage="contact" />
-      <div className="bg-LoginBg">
+      <div className="bg-LoginBg py-24">
         <Heading level={2.5} center>
           Get in touch
         </Heading>
@@ -25,10 +25,12 @@ export default function Contact() {
           We’d love to hear from you. Please fill out this form.
         </Typography>
         <Container>
-          <div className="mt-16">
-            <OnlyClient>
-              <ContactForm onSubmit={() => {}} />
-            </OnlyClient>
+          <div className="mt-16 flex justify-center">
+            <div className="sm:w-[480px]">
+              <OnlyClient>
+                <ContactForm onSubmit={() => {}} />
+              </OnlyClient>
+            </div>
           </div>
         </Container>
       </div>

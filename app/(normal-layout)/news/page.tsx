@@ -29,7 +29,7 @@ export default function News() {
       <Container>
         <div className="flex items-center justify-between pr-1">
           <Heading level={2.5} color="white">
-            Memories
+            News
           </Heading>
           <Input
             startIcon={
@@ -42,7 +42,7 @@ export default function News() {
         <div className="py-16">
           <CategorySelector categories={EventCategories} />
         </div>
-        <div className="grid grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 gap-16 sm:grid-cols-3">
           <NewsCard />
           <NewsCard />
           <NewsCard />

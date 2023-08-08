@@ -10,5 +10,6 @@ export type InputProps = {
   validationError?: string;
   isDirty?: boolean;
   transparent?: boolean;
+  helperText?: string;
   startIcon?: JSX.Element | undefined;
 };

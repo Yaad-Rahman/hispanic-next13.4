@@ -16,7 +16,7 @@ export const Memories = () => {
       </Heading>
 
       <Container>
-        <div className="grid grid-cols-3 gap-8 py-16">
+        <div className="grid grid-cols-1 gap-8 py-16 sm:grid-cols-3">
           {MemoriesData.map((memory, index, memoriesArray) => {
             if (index === 0) {
               return (

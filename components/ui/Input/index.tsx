@@ -17,6 +17,7 @@ export const Input = ({
   isDirty = false,
   readOnly = false,
   transparent = false,
+  helperText,
   startIcon,
 }: InputProps) => {
   const [touched, setTouched] = useState(isDirty);
@@ -68,9 +69,16 @@ export const Input = ({
           value={value}
         />
       </div>
-      {validationError && (
-        <span className="mt-2 text-xs text-red-700">{validationError}</span>
-      )}
+      <div className="flex flex-col gap-2">
+        {validationError && (
+          <span className="mt-2 text-xs text-red-700">{validationError}</span>
+        )}
+        {helperText && (
+          <span className="font-lexendFont text-sm text-gray-600">
+            {helperText}
+          </span>
+        )}
+      </div>
     </div>
   );
 };

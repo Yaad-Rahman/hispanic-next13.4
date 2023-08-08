@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+export { Accordion } from './Accordion';
 export { Button } from './Button';
 export { EventCard } from './Card/EventCard';
 export { FacebookCard } from './Card/FacebookCard';
@@ -15,6 +16,11 @@ export { Header } from './Header';
 export { Heading } from './Heading';
 export { Input } from './Input';
 export { Link } from './Link';
+export { Modal } from './Modal';
 export { Pagination } from './Pagination';
+export { PhoneNumberInput } from './PhoneInput';
+export { RadioButton } from './RadioButton';
 export { ScreenResizer } from './ScreenResizer';
+export { SocialShare } from './SocialShare';
+export { Textarea } from './Textarea';
 export { Typography } from './Typography';

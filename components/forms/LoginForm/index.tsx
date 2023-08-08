@@ -2,11 +2,13 @@
 
 import { Button, Checkbox, Input, Typography } from '@hispanic-ui';
 import { Formik } from 'formik';
+import { useRouter } from 'next/navigation';
 
 import { LoginFormInitialValues, validationSchema } from './dataValidation';
 import type { FormProps } from './types';
 
 export const LoginForm = ({ onSubmit }: FormProps) => {
+  const router = useRouter();
   return (
     <Formik
       initialValues={LoginFormInitialValues}
@@ -70,7 +72,12 @@ export const LoginForm = ({ onSubmit }: FormProps) => {
             <Typography size="small" variant="lightGray" lexend>
               Don’t have an account?
             </Typography>
-            <Button type="button" label="Sign up" variant="text" />
+            <Button
+              onClick={() => router.push('/signup')}
+              type="button"
+              label="Sign up"
+              variant="text"
+            />
           </div>
         </form>
       )}

@@ -45,7 +45,8 @@
       "@/*": ["./*"],
       "@hispanic-ui": ["./components/ui"],
       "@hispanic-page-ui": ["./components/page"],
-      "@hispanic-forms": ["./components/forms"]
+      "@hispanic-forms": ["./components/forms"],
+      "@hispanic-icons": ["./components/icons"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -20,10 +20,11 @@ export const DJCorner = () => {
         DJ&apos;s Corner & Video
       </Heading>
       <Container>
-        <div className="mt-16 flex gap-10">
+        <div className="mt-16 flex flex-col gap-6 sm:flex-row sm:gap-10">
           <div>
             <iframe
-              width={280}
+              // width={280}
+              className="w-full sm:w-[280px]"
               height="100%"
               scrolling="no"
               frameBorder="no"
@@ -34,7 +35,8 @@ export const DJCorner = () => {
           <img src="/images/homepage/djNegro.svg" alt="dj" />
           <div>
             <iframe
-              width={600}
+              // width={600}
+              className="w-full sm:w-[600px]"
               height="100%"
               src="https://www.youtube.com/embed/HGrfTS6jRMQ"
               title="YouTube video player"

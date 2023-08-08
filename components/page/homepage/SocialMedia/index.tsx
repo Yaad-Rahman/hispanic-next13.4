@@ -17,7 +17,7 @@ export const SocialMedia = () => {
         <Heading level={2.5} color="white" lexend className="mt-3" center>
           Social Media
         </Heading>
-        <div className="mt-16 grid grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <TwitterCard />
           <FacebookCard />
           <InstagramCard />

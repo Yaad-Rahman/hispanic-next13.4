@@ -43,7 +43,7 @@ export const ContactUs = ({ forPage }: { forPage: 'home' | 'contact' }) => {
           Reach out to the NYPDHS - Our Friendly Team Is Here to Help
         </Heading>
 
-        <div className="mt-16 flex justify-between">
+        <div className="mt-16 flex flex-col justify-between sm:flex-row">
           <div className="flex flex-col gap-12">
             {GetInTouchData.map((getintouch, index) => (
               <div className="flex gap-4" key={index}>

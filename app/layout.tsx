@@ -30,7 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${kanit.variable} ${lexend.variable}`}>
-      <body className="font-kanitFont">{children}</body>
+      <body className="font-kanitFont">
+        {children}
+        <div id="modal-root"></div>
+      </body>
     </html>
   );
 }

@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+/* react phone number input  */
+.PhoneInputInput {
+  @apply focus-visible:outline-none;
+}
+
 /* slick carousel */
 .slick-dots {
  width: fit-content !important;
