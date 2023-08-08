@@ -16,7 +16,7 @@ export default function SingleEvent() {
       }}
     >
       <Container>
-        <div className="flex gap-10">
+        <div className="flex flex-col gap-10 sm:flex-row">
           <div className="basis-8/12">
             <Heading level={2} weight="normal" color="white">
               Hispanic Society Borica Bash

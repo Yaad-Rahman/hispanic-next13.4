@@ -294,9 +294,43 @@ const LinksPageData = [
   },
 ];
 
+const FaqData = [
+  {
+    header: 'Lorem ipsum dolor sit amet consectetur?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur. Cras sagittis cras eget risus eget diam et. Congue sed mi ut elementum felis. Mollis condimentum et nam rhoncus ac in. Libero tellus consectetur aliquam augue sem amet cras turpis tellus.',
+  },
+  {
+    header: 'Lorem ipsum dolor sit amet consectetur?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur. Cras sagittis cras eget risus eget diam et. Congue sed mi ut elementum felis. Mollis condimentum et nam rhoncus ac in. Libero tellus consectetur aliquam augue sem amet cras turpis tellus.',
+  },
+  {
+    header: 'Lorem ipsum dolor sit amet consectetur?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur. Cras sagittis cras eget risus eget diam et. Congue sed mi ut elementum felis. Mollis condimentum et nam rhoncus ac in. Libero tellus consectetur aliquam augue sem amet cras turpis tellus.',
+  },
+  {
+    header: 'Lorem ipsum dolor sit amet consectetur?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur. Cras sagittis cras eget risus eget diam et. Congue sed mi ut elementum felis. Mollis condimentum et nam rhoncus ac in. Libero tellus consectetur aliquam augue sem amet cras turpis tellus.',
+  },
+  {
+    header: 'Lorem ipsum dolor sit amet consectetur?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur. Cras sagittis cras eget risus eget diam et. Congue sed mi ut elementum felis. Mollis condimentum et nam rhoncus ac in. Libero tellus consectetur aliquam augue sem amet cras turpis tellus.',
+  },
+  {
+    header: 'Lorem ipsum dolor sit amet consectetur?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur. Cras sagittis cras eget risus eget diam et. Congue sed mi ut elementum felis. Mollis condimentum et nam rhoncus ac in. Libero tellus consectetur aliquam augue sem amet cras turpis tellus.',
+  },
+];
+
 export {
   BoardMembers,
   EventCategories,
+  FaqData,
   FooterIcons,
   FooterLegal,
   FooterSocial,

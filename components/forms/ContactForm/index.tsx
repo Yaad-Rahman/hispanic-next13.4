@@ -30,28 +30,32 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
       }) => (
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <Input
-              name="firstName"
-              label="First name"
-              placeholder="First name"
-              onChange={handleChange}
-              value={values.email}
-              isDirty={touched.email}
-              validationError={
-                touched.email && errors.email ? errors.email : undefined
-              }
-            />
-            <Input
-              name="lastName"
-              label="Last name"
-              placeholder="Last name"
-              onChange={handleChange}
-              value={values.email}
-              isDirty={touched.email}
-              validationError={
-                touched.email && errors.email ? errors.email : undefined
-              }
-            />
+            <div className="col-span-2 sm:col-span-1">
+              <Input
+                name="firstName"
+                label="First name"
+                placeholder="First name"
+                onChange={handleChange}
+                value={values.email}
+                isDirty={touched.email}
+                validationError={
+                  touched.email && errors.email ? errors.email : undefined
+                }
+              />
+            </div>
+            <div className="col-span-2 sm:col-span-1">
+              <Input
+                name="lastName"
+                label="Last name"
+                placeholder="Last name"
+                onChange={handleChange}
+                value={values.email}
+                isDirty={touched.email}
+                validationError={
+                  touched.email && errors.email ? errors.email : undefined
+                }
+              />
+            </div>
             <div className="col-span-2">
               <Input
                 name="email"

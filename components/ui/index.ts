@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+export { Accordion } from './Accordion';
 export { Button } from './Button';
 export { EventCard } from './Card/EventCard';
 export { FacebookCard } from './Card/FacebookCard';

@@ -3,7 +3,7 @@
 import { Button } from '@hispanic-ui';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { NavMenus } from '@/constants/testData';
 import { useHeaderFooter } from '@/hooks/useHeaderFooter';
@@ -14,6 +14,7 @@ import { classes } from './styles';
 export const Navbar = () => {
   const { getVariant } = useHeaderFooter();
   const router = useRouter();
+  const pathName = usePathname();
   return (
     <div
       className={clsx(
@@ -34,7 +35,16 @@ export const Navbar = () => {
             <div className="flex gap-8">
               {NavMenus.map((menu) => (
                 <Link href={menu.link} key={menu.id}>
-                  <p className="font-semibold text-white">{menu.name}</p>
+                  <p
+                    className={clsx(
+                      pathName === menu.link && 'text-primary-400',
+                      pathName !== menu.link &&
+                        'text-white hover:text-primary-400',
+                      'font-semibold'
+                    )}
+                  >
+                    {menu.name}
+                  </p>
                 </Link>
               ))}
             </div>
@@ -44,6 +54,7 @@ export const Navbar = () => {
               onClick={() => router.push('/login')}
               variant="text"
               label="Log in"
+              className="text-white"
             />
             <Button variant="black" label="Sign up" />
           </div>

@@ -40,4 +40,13 @@ const TicketInfoData = [
   },
 ];
 
-export { TicketInfoData };
+const TicketSuccessInfoData = [
+  {
+    icon: <MapPinIcon className="h-6 w-6" />,
+    key: 'Event',
+    value: 'Hispanic Society Borica Bash',
+  },
+  ...TicketInfoData,
+];
+
+export { TicketInfoData, TicketSuccessInfoData };

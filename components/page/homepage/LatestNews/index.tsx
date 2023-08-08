@@ -29,7 +29,7 @@ export const LatestNews = ({ forNewspage }: { forNewspage?: boolean }) => {
           </Heading>
           <Button label="View all" variant="black" />
         </div>
-        <div className="mt-16 grid grid-cols-2 gap-8">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
           <NewsCard />
           <NewsCard />
         </div>

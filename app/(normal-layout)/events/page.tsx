@@ -34,7 +34,7 @@ export default function Events() {
         <div className="py-16">
           <CategorySelector categories={EventCategories} />
         </div>
-        <div className="grid grid-cols-3 gap-x-8 gap-y-16 pb-16">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-16 pb-16 sm:grid-cols-3">
           {UpcomingEventsData.concat(
             UpcomingEventsData,
             UpcomingEventsData

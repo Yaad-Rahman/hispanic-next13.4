@@ -18,13 +18,13 @@ export const PaginationMobile = ({
     <Container>
       <div className="flex items-center justify-between border-t border-solid border-primary-200 pt-5">
         <div onClick={onPrevious}>
-          <ArrowLeftIcon className="h-6 w-6 text-primary-700" />
+          <ArrowLeftIcon className="h-6 w-6 text-white" />
         </div>
         <Typography size="medium" variant="medium">
           Page {currentPage} of {Math.ceil(totalCount / pageSize)}
         </Typography>
         <div onClick={onNext}>
-          <ArrowRightIcon className="h-6 w-6 text-primary-700" />
+          <ArrowRightIcon className="h-6 w-6 text-white" />
         </div>
       </div>
     </Container>

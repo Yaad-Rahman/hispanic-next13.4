@@ -52,7 +52,7 @@ export const CarouselSlider = () => {
               PAZ Y UNIDAD | EMBRACING OUR GENTE, RAICES AND IDENTITIES TO
               DEFINE THE FUTURE
             </Typography>
-            <div className="mt-12 flex gap-3">
+            <div className="mt-12 flex flex-col gap-3 sm:flex-row">
               <Button
                 label="Learn More"
                 variant="white"

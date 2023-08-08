@@ -20,7 +20,7 @@ export default function About() {
         <Heading className="mt-3" level={2.5} color="white">
           Our History Begins
         </Heading>
-        <div className="mt-16 columns-2 gap-16 pb-24">
+        <div className="mt-16 columns-1 gap-16 pb-24 sm:columns-2">
           <Typography size="large" variant="white">
             In July 29th, 1957, the New York City Police Department Hispanic
             Society was incorporated, with Police Commissioner Stephen F.
