@@ -1,3 +1,5 @@
+import type { ApiResponse } from '@/types/apiType';
+
 type ParamsTypes = {
   [key: string]: string | number;
 };
@@ -11,14 +13,14 @@ interface ApiFetchProps {
   header?: object;
 }
 
-export default async function ApiFetch({
+export default async function ApiFetch<T>({
   url,
   params = '',
   body = null,
   auth = false,
   method,
   header,
-}: ApiFetchProps) {
+}: ApiFetchProps): Promise<ApiResponse<T>> {
   // @ts-ignore
   const urlParams = new URLSearchParams(params).toString();
 
@@ -35,7 +37,8 @@ export default async function ApiFetch({
   );
 
   if (!res.ok) {
-    throw new Error('Failed to fetch');
+    // throw new Error('Failed to fetch');
+    console.log('Error to fetch api', res.status);
   }
 
   return res.json();

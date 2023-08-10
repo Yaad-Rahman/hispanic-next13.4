@@ -1,12 +1,12 @@
-export interface ApiResponse {
-  success: boolean;
-  message: string;
-  payload: PayloadType;
+export interface ApiResponse<T> {
+  success: true;
+  messag: string;
+  payload: PayloadType<T>;
   status: string;
 }
 
-type PayloadType = {
-  content: any[];
+export type PayloadType<T> = {
+  content: T;
   pageable: {
     sort: {
       empty: boolean;
