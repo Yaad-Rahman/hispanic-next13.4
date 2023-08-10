@@ -1,7 +1,7 @@
-def discordWebhookUrl = 'https://discord.com/api/webhooks/1110524653425917963/oEiSuF3rPwgvMDaY2jyQtIMyUPgkpyU2qQy_IT6iBbILfixaNHZm2uCPooQVCosTzQ5s'
-//def discordWebhookUrl = 'https://discordapp.com/api/webhooks/1110871631649308732/c22PrimIGPeiCKdJYtg06hXdbaIazu3IOdoJykK17Pj9vuWEJOA8Gvluo0PO3bubXMFc'
+//def discordWebhookUrl = 'https://discord.com/api/webhooks/1110524653425917963/oEiSuF3rPwgvMDaY2jyQtIMyUPgkpyU2qQy_IT6iBbILfixaNHZm2uCPooQVCosTzQ5s'
+def discordWebhookUrl = 'https://discordapp.com/api/webhooks/1110871631649308732/c22PrimIGPeiCKdJYtg06hXdbaIazu3IOdoJykK17Pj9vuWEJOA8Gvluo0PO3bubXMFc'
 
-def ubuntuUser = 'sudo -u ashiq '
+//def ubuntuUser = 'sudo -u ashiq '
 
 pipeline {
   agent any
@@ -18,7 +18,7 @@ pipeline {
         script {    
           try{
                 //Main Command
-                sh ubuntuUser+'/home/ashiq/scripts/hispanic-web.sh' 
+                sh ubuntuUser+'/home/disl/scripts/hispanic.sh' 
                 
                  discordSend description: "Build & Deployment Success. Please wait a while to get system fully restarted.",
                    footer: "Commit: ${env.GIT_COMMIT}",
