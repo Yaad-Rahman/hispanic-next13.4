@@ -18,7 +18,7 @@ pipeline {
         script {    
           try{
                 //Main Command
-                sh ubuntuUser+'/home/disl/scripts/hispanic.sh' 
+                sh '/home/disl/scripts/hispanic.sh' 
                 
                  discordSend description: "Build & Deployment Success. Please wait a while to get system fully restarted.",
                    footer: "Commit: ${env.GIT_COMMIT}",
