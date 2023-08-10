@@ -1,7 +1,5 @@
-//def discordWebhookUrl = 'https://discord.com/api/webhooks/1110524653425917963/oEiSuF3rPwgvMDaY2jyQtIMyUPgkpyU2qQy_IT6iBbILfixaNHZm2uCPooQVCosTzQ5s'
-def discordWebhookUrl = 'https://discordapp.com/api/webhooks/1110871631649308732/c22PrimIGPeiCKdJYtg06hXdbaIazu3IOdoJykK17Pj9vuWEJOA8Gvluo0PO3bubXMFc'
-
-//def ubuntuUser = 'sudo -u ashiq '
+def discordWebhookUrl = 'https://discord.com/api/webhooks/1110524653425917963/oEiSuF3rPwgvMDaY2jyQtIMyUPgkpyU2qQy_IT6iBbILfixaNHZm2uCPooQVCosTzQ5s'
+//def discordWebhookUrl = 'https://discordapp.com/api/webhooks/1110871631649308732/c22PrimIGPeiCKdJYtg06hXdbaIazu3IOdoJykK17Pj9vuWEJOA8Gvluo0PO3bubXMFc'
 
 pipeline {
   agent any
