@@ -18,7 +18,7 @@ pipeline {
         script {    
           try{
                 //Main Command
-                sh '/home/disl/scripts/hispanic.sh' 
+                sh '/var/lib/jenkins/workspace/hispanic.sh' 
                 
                  discordSend description: "Build & Deployment Success. Please wait a while to get system fully restarted.",
                    footer: "Commit: ${env.GIT_COMMIT}",
