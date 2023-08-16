@@ -1,6 +1,6 @@
 export interface ApiResponse<T> {
   success: true;
-  messag: string;
+  message: string;
   payload: PayloadType<T>;
   status: string;
 }
