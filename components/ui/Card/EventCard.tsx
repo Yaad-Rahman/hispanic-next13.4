@@ -12,7 +12,7 @@ export const EventCard = ({
   time,
 }: EventCardType) => {
   return (
-    <div className="rounded-lg bg-white p-6 shadow-lg">
+    <div className="flex flex-col rounded-lg bg-white p-6 shadow-lg">
       <img
         src={eventImage}
         alt="event"
@@ -39,28 +39,30 @@ export const EventCard = ({
           className="h-6 w-6"
         />
       </div>
-      <div className="mt-3 flex items-center justify-between">
-        <div className="flex items-center gap-1">
-          <img src="/logos/map-pin.svg" alt="map pin" className="h-5 w-5" />
-          <Typography variant="medium" weight="bold" lexend>
-            {address}
-          </Typography>
+      <div className="flex h-full flex-col justify-end">
+        <div className="mt-3 flex items-center justify-between">
+          <div className="flex items-center gap-1">
+            <img src="/logos/map-pin.svg" alt="map pin" className="h-5 w-5" />
+            <Typography variant="medium" weight="bold" lexend>
+              {address}
+            </Typography>
+          </div>
+          {isFree ? (
+            <Typography size="xl" weight="bold" variant="medium" lexend>
+              FREE
+            </Typography>
+          ) : (
+            <Typography
+              variant="noStyle"
+              size="xl"
+              className="text-amber-600"
+              weight="bold"
+              lexend
+            >
+              {price}
+            </Typography>
+          )}
         </div>
-        {isFree ? (
-          <Typography size="xl" weight="bold" variant="medium" lexend>
-            FREE
-          </Typography>
-        ) : (
-          <Typography
-            variant="noStyle"
-            size="xl"
-            className="text-amber-600"
-            weight="bold"
-            lexend
-          >
-            {price}
-          </Typography>
-        )}
       </div>
     </div>
   );

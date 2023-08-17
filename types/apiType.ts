@@ -1,7 +1,10 @@
-export interface ApiResponse<T> {
+export interface ApiResponse<
+  T,
+  PayloadKeyType extends 'single' | 'collection' = 'collection'
+> {
   success: true;
   message: string;
-  payload: PayloadType<T>;
+  payload: PayloadKeyType extends 'single' ? T : PayloadType<T>;
   status: string;
 }
 
