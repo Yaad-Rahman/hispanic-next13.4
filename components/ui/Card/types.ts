@@ -5,7 +5,6 @@ export type EventCardType = {
   time: string;
   address: string;
   isFree: boolean;
-  price: string;
 };
 
 export type ImageCardType = {

@@ -8,7 +8,6 @@ export const EventCard = ({
   eventImage,
   eventName,
   isFree,
-  price,
   time,
 }: EventCardType) => {
   return (
@@ -47,21 +46,16 @@ export const EventCard = ({
               {address}
             </Typography>
           </div>
-          {isFree ? (
-            <Typography size="xl" weight="bold" variant="medium" lexend>
-              FREE
-            </Typography>
-          ) : (
-            <Typography
-              variant="noStyle"
-              size="xl"
-              className="text-amber-600"
-              weight="bold"
-              lexend
-            >
-              {price}
-            </Typography>
-          )}
+
+          <Typography
+            variant={isFree ? 'medium' : 'noStyle'}
+            size="xl"
+            className={isFree ? undefined : 'text-amber-600'}
+            weight="bold"
+            lexend
+          >
+            {isFree ? 'FREE' : 'PAID'}
+          </Typography>
         </div>
       </div>
     </div>

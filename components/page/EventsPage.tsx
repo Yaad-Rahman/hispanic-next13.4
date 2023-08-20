@@ -44,7 +44,6 @@ export const EventsPage = ({ events }: { events: EventType[] }) => {
               eventImage={event.photo.fileUrl}
               eventName={event.name}
               isFree={!event.paid}
-              price={'$100'}
               time={'2332'}
               key={event.id}
             />

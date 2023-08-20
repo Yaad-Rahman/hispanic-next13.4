@@ -53,7 +53,6 @@ export const UpcomingEvents = ({
               eventImage={event.eventImage}
               eventName={event.eventName}
               isFree={event.isFree}
-              price={event.price}
               time={event.time}
               key={index}
             />
