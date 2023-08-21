@@ -17,6 +17,7 @@ export { Heading } from './Heading';
 export { Input } from './Input';
 export { Link } from './Link';
 export { Modal } from './Modal';
+export { NotFound } from './NotFound';
 export { Pagination } from './Pagination';
 export { PhoneNumberInput } from './PhoneInput';
 export { RadioButton } from './RadioButton';

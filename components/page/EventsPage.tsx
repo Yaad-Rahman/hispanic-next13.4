@@ -6,21 +6,35 @@ import {
   EventCard,
   Heading,
   Input,
+  NotFound,
   Pagination,
 } from '@hispanic-ui';
 
 import { EventCategories } from '@/constants/testData';
+import { useEvents } from '@/hooks/events/useEvents';
+import { usePagination } from '@/hooks/usePagination';
+import { FormatDateTime } from '@/libs/helpers/FormatDate';
+import type { PaginationType } from '@/types/commonTypes';
 import type { EventType } from '@/types/eventType';
 
 import { Container } from '../layout/Container';
 
-export const EventsPage = ({ events }: { events: EventType[] }) => {
+export const EventsPage = ({
+  events,
+  pagination,
+}: {
+  events: EventType[];
+  pagination: PaginationType;
+}) => {
+  const { searchEvent, handleSearch } = useEvents();
+  const { onPageChange } = usePagination();
+
   return (
     <div className="pt-defaultPadding">
       <img src="/images/homepage/flagRope.svg" alt="flags" className="w-full" />
       <Container>
         <div className="mt-24">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between pr-1">
             <Heading level={2.5} color="white">
               Events
             </Heading>
@@ -30,31 +44,37 @@ export const EventsPage = ({ events }: { events: EventType[] }) => {
               }
               name="search"
               placeholder="Search"
+              value={searchEvent}
+              onChange={(event) => handleSearch(event.currentTarget.value)}
             />
           </div>
         </div>
         <div className="py-16">
           <CategorySelector categories={EventCategories} />
         </div>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 pb-16 sm:grid-cols-3">
-          {events.map((event) => (
-            <EventCard
-              address={event.venue}
-              date={String(event.eventDateTime)}
-              eventImage={event.photo.fileUrl}
-              eventName={event.name}
-              isFree={!event.paid}
-              time={'2332'}
-              key={event.id}
-            />
-          ))}
-        </div>
+        {events.length > 0 ? (
+          <div className="grid grid-cols-1 gap-x-8 gap-y-16 pb-16 sm:grid-cols-3">
+            {events.map((event) => (
+              <EventCard
+                id={event.id}
+                address={event.venue}
+                date={FormatDateTime(event.eventDateTime)}
+                eventImage={event.photo.fileUrl}
+                eventName={event.name}
+                isFree={!event.paid}
+                key={event.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <NotFound message="No events found" color="white" />
+        )}
       </Container>
       <Pagination
-        currentPage={2}
-        onPageChange={() => {}}
-        pageSize={5}
-        totalCount={50}
+        currentPage={pagination.currentPage}
+        onPageChange={onPageChange}
+        pageSize={pagination.pageSize}
+        totalCount={pagination.totalCount}
       />
       <img
         src="/images/homepage/event-down.svg"

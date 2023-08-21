@@ -1,4 +1,4 @@
-import type { ImageType } from './commonTypes';
+import type { AddressType, ImageType } from './commonTypes';
 
 export type EventType = {
   createdBy: string;
@@ -10,7 +10,7 @@ export type EventType = {
   name: string;
   venue: string;
   photo: ImageType;
-  address: null;
+  address: AddressType | null;
   eventType: string;
   eventDateTime: number;
   deadlineBooking: number;
@@ -24,4 +24,11 @@ export type EventType = {
   creationDateTimetoInstant: number;
   lastModifiedDateTimetoInstant: number;
   lastModifiedDateTimeStamp: number;
+};
+
+export type SingleEventType = {
+  event: EventType;
+  ticketValue: string;
+  tickets: null;
+  availableTickets: number;
 };

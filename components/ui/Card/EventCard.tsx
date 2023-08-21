@@ -1,21 +1,25 @@
+import { useRouter } from 'next/navigation';
+
 import { Heading } from '../Heading';
 import { Typography } from '../Typography';
 import type { EventCardType } from './types';
 
 export const EventCard = ({
+  id,
   address,
   date,
   eventImage,
   eventName,
   isFree,
-  time,
 }: EventCardType) => {
+  const router = useRouter();
   return (
     <div className="flex flex-col rounded-lg bg-white p-6 shadow-lg">
       <img
         src={eventImage}
         alt="event"
-        className="h-[240px] w-full object-cover"
+        className="h-[240px] w-full cursor-pointer object-cover"
+        onClick={() => router.push(`/events/${id}`)}
       />
       <div className="mt-8 flex items-center gap-1">
         <img src="/logos/calender.svg" alt="calender" className="h-6 w-6" />
@@ -25,10 +29,13 @@ export const EventCard = ({
           weight="bold"
           lexend
         >
-          {date} • {time}
+          {date}
         </Typography>
       </div>
-      <div className=" mt-[10px] flex items-center justify-between">
+      <div
+        onClick={() => router.push(`/events/${id}`)}
+        className="mt-[10px] flex cursor-pointer items-center justify-between"
+      >
         <Heading level={4} lexend>
           {eventName}
         </Heading>

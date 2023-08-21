@@ -1,8 +1,8 @@
 export type EventCardType = {
+  id: number;
   eventName: string;
   eventImage: string;
   date: string;
-  time: string;
   address: string;
   isFree: boolean;
 };
