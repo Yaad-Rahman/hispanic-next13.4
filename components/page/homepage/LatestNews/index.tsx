@@ -1,4 +1,4 @@
-import { Button, Heading, NewsCard } from '@hispanic-ui';
+import { Button, Heading } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
 
@@ -30,8 +30,8 @@ export const LatestNews = ({ forNewspage }: { forNewspage?: boolean }) => {
           <Button label="View all" variant="black" />
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <NewsCard />
-          <NewsCard />
+          {/* <NewsCard />
+          <NewsCard /> */}
         </div>
       </Container>
     </div>

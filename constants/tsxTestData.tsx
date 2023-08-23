@@ -7,21 +7,24 @@ import {
   TicketIcon,
 } from '@heroicons/react/24/outline';
 
-const TicketInfoData = [
+import { FormatDateTime } from '@/libs/helpers/FormatDate';
+import type { EventType } from '@/types/eventType';
+
+const TicketInfoData = (event: EventType) => [
   {
     icon: <CalendarDaysIcon className="h-6 w-6" />,
     key: 'Event Date',
-    value: '20 Dec 2022',
+    value: FormatDateTime(event.eventDateTime, 'only-date'),
   },
   {
     icon: <MapPinIcon className="h-6 w-6" />,
     key: 'Location',
-    value: 'Domino Park',
+    value: event.venue,
   },
   {
     icon: <ClockIcon className="h-6 w-6" />,
     key: 'Event Time',
-    value: '11am - 5pm ',
+    value: FormatDateTime(event.eventDateTime, 'only-time'),
   },
   {
     icon: <TicketIcon className="h-6 w-6" />,
@@ -46,7 +49,7 @@ const TicketSuccessInfoData = [
     key: 'Event',
     value: 'Hispanic Society Borica Bash',
   },
-  ...TicketInfoData,
+  TicketInfoData,
 ];
 
 export { TicketInfoData, TicketSuccessInfoData };

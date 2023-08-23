@@ -1,40 +1,43 @@
-import { Button, Heading, Modal, RadioButton, Typography } from '@hispanic-ui';
+// eslint-disable-next-line import/no-cycle
+import { TicketBookForm } from '@hispanic-forms';
+import { Button, Heading, Modal, Typography } from '@hispanic-ui';
 import { useState } from 'react';
 
 import { TicketInfoData } from '@/constants/tsxTestData';
+import { FormatDateTime } from '@/libs/helpers/FormatDate';
+import type { EventType } from '@/types/eventType';
+import type { TicketCategoryType } from '@/types/ticketType';
 
 import { TicketInfo } from '../TicketInfo';
-import { TicketQuantity } from '../TicketQuantity';
 
-export const BookTicket = () => {
+export const BookTicket = ({
+  event,
+  ticketCategories,
+}: {
+  event: EventType;
+  ticketCategories: TicketCategoryType[];
+}) => {
   const [open, setOpen] = useState<boolean>(false);
   return (
     <div className="rounded-lg bg-white p-6 ">
       <div className="flex items-center gap-5">
         <img
-          src="/test/single-event.svg"
+          src={event.photo.fileUrl}
           alt="event"
           className="h-[90px] w-[92px] rounded-lg object-cover"
         />
         <div>
           <Typography size="xl" weight="medium">
-            Hispanic Society Borica Bash
+            {event.name}
           </Typography>
           <Typography size="small" variant="lightGray" weight="medium">
-            Friday
+            {FormatDateTime(event.eventDateTime, 'only-day')}
           </Typography>
         </div>
       </div>
-      <div className="mt-5">
-        <Typography weight="bold">Ticket Type</Typography>
-        <div className="flex gap-[22px] rounded-lg bg-primary-25 px-4 py-3">
-          <RadioButton name="type" labelTitle="Regular" labelSubTitle="$50" />
-          <RadioButton name="type" labelTitle="Premium" labelSubTitle="$100" />
-        </div>
-      </div>
-      <TicketQuantity />
+      <TicketBookForm ticketCategories={ticketCategories} onSubmit={() => {}} />
       <div className="my-6">
-        <TicketInfo info={TicketInfoData} />
+        <TicketInfo info={TicketInfoData(event)} />
       </div>
       <Button
         onClick={() => setOpen(true)}

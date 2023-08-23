@@ -48,12 +48,12 @@ export const UpcomingEvents = ({
         >
           {UpcomingEventsData.map((event, index) => (
             <EventCard
+              id={2}
               address={event.address}
               date={event.date}
               eventImage={event.eventImage}
               eventName={event.eventName}
               isFree={event.isFree}
-              time={event.time}
               key={index}
             />
           ))}

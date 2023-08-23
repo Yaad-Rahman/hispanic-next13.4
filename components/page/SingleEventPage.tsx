@@ -4,10 +4,20 @@ import { CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { UpcomingEvents } from '@hispanic-page-ui';
 import { Heading, Typography } from '@hispanic-ui';
 
+import { FormatDateTime } from '@/libs/helpers/FormatDate';
+import type { EventType } from '@/types/eventType';
+import type { TicketCategoryType } from '@/types/ticketType';
+
 import { Container } from '../layout/Container';
 import { BookTicket } from './events/BookTicket';
 
-export const SingleEventPage = () => {
+export const SingleEventPage = ({
+  event,
+  ticketCategories,
+}: {
+  event: EventType;
+  ticketCategories: TicketCategoryType[];
+}) => {
   return (
     <div
       className="pt-defaultPadding"
@@ -20,42 +30,27 @@ export const SingleEventPage = () => {
         <div className="flex flex-col gap-10 sm:flex-row">
           <div className="basis-8/12">
             <Heading level={2} weight="normal" color="white">
-              Hispanic Society Borica Bash
+              {event.name}
             </Heading>
             <div className="mt-5 flex items-center gap-1">
               <CalendarDaysIcon className="h-6 w-6 text-white" />
               <Typography variant="white" weight="bold" size="xl" lexend>
-                20 Dec 2022 • 11am - 5pm
+                {FormatDateTime(event.eventDateTime)}
               </Typography>
             </div>
             <div className="mt-5 flex items-center gap-2 text-gray-500">
               <MapPinIcon className="h-6 w-6" />
               <Typography variant="noStyle" weight="bold" size="xl" lexend>
-                Domino Park
+                {event.venue}
               </Typography>
             </div>
             <img
               className="mt-6 aspect-[399/292] w-full object-cover"
-              src="/test/single-event.svg"
+              src={event.photo.fileUrl}
               alt="event"
             />
             <Typography className="my-10" size="xl" variant="white" lexend>
-              Llanina Rosalia Medina (Nina) has worked for San Diego Police
-              department for over 29 years. Throughout her career she has worked
-              in Southeast Division. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. In varius felis quis tempor malesuada. Morbi
-              interdum mi vitae ornare imperdiet. Aliquam aliquam lacus volutpat
-              facilisis faucibus. Llanina Rosalia Medina (Nina) has worked for
-              San Diego Police department for over 29 years. Throughout her
-              career she has worked in Southeast Division. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. In varius felis quis tempor
-              malesuada. Morbi interdum mi vitae ornare imperdiet. Aliquam
-              aliquam lacus volutpat facilisis faucibus.Llanina Rosalia Medina
-              (Nina) has worked for San Diego Police department for over 29
-              years. Throughout her career she has worked in Southeast Division.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius
-              felis quis tempor malesuada. Morbi interdum mi vitae ornare
-              imperdiet. Aliquam aliquam lacus volutpat facilisis faucibus.
+              {event.description}
             </Typography>
             <img
               className="aspect-[800/347] w-full object-cover"
@@ -67,7 +62,7 @@ export const SingleEventPage = () => {
             </div>
           </div>
           <div className="basis-4/12">
-            <BookTicket />
+            <BookTicket event={event} ticketCategories={ticketCategories} />
           </div>
         </div>
       </Container>

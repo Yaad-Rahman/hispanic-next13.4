@@ -1,12 +1,18 @@
 import { getEvent } from '@/api/eventsApi';
+import { getEventTicketCategories } from '@/api/ticketsApi';
 import { SingleEventPage } from '@/components/page/SingleEventPage';
 
-export default function SingleEvent({ params }: { params: any }) {
+export default async function SingleEvent({ params }: { params: any }) {
   const { id } = params;
 
-  const eventData = getEvent(id);
+  const eventData = await getEvent(id);
 
-  console.log('event data', eventData);
+  const ticketCategoriesData = await getEventTicketCategories(id);
 
-  return <SingleEventPage />;
+  return (
+    <SingleEventPage
+      event={eventData.payload.event}
+      ticketCategories={ticketCategoriesData.payload}
+    />
+  );
 }

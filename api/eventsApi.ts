@@ -1,4 +1,4 @@
-import type { EventType } from '@/types/eventType';
+import type { EventType, SingleEventType } from '@/types/eventType';
 import ApiFetch from '@/utils/ApiFetch';
 
 async function getAllEvents(params?: any) {
@@ -13,7 +13,7 @@ async function getAllEvents(params?: any) {
 }
 
 async function getEvent(id: number) {
-  const response = await ApiFetch<EventType, 'single'>({
+  const response = await ApiFetch<SingleEventType, 'single'>({
     url: `events/eventId/${id}`,
     method: 'GET',
     auth: true,

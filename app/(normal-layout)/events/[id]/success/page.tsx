@@ -1,10 +1,8 @@
 'use client';
 
-import { TicketInfo } from '@hispanic-page-ui';
 import { Button, Heading, Typography } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
-import { TicketSuccessInfoData } from '@/constants/tsxTestData';
 
 export default function SuccessTicket() {
   return (
@@ -37,7 +35,7 @@ export default function SuccessTicket() {
       <Container>
         <div className="flex w-full justify-center">
           <div className="mt-12 w-[576px] rounded-lg bg-white p-6">
-            <TicketInfo info={TicketSuccessInfoData} />
+            {/* <TicketInfo info={TicketSuccessInfoData} /> */}
             <Button
               className="mt-6"
               label="Back to home"

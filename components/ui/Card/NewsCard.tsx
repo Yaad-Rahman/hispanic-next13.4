@@ -1,9 +1,14 @@
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
+import { useRouter } from 'next/navigation';
 
+import type { PostType } from '@/types/blogType';
+
+import { Description } from '../Description';
 import { Heading } from '../Heading';
 import { Typography } from '../Typography';
 
-export const NewsCard = () => {
+export const NewsCard = ({ theNews }: { theNews: PostType }) => {
+  const router = useRouter();
   return (
     <div className="rounded-lg bg-white p-6">
       <img
@@ -18,10 +23,10 @@ export const NewsCard = () => {
           weight="semibold"
           className="text-textColor-lightPink"
         >
-          Olivia Rhye • 20 Jan 2022
+          {theNews.creationDate}
         </Typography>
         <Heading level={4} weight="semibold">
-          Llanina “Nina” Medina is retiring from SDPD
+          {theNews.title}
         </Heading>
         <Typography
           variant="noStyle"
@@ -30,12 +35,12 @@ export const NewsCard = () => {
           size="medium"
           lexend
         >
-          Llanina Rosalia Medina (Nina) has worked for San Diego Police
-          department for over 29 years. Throughout her career she has worked in
-          Southeast Division a predominated multi racial community. Nina loved
-          this community and, in these years, has come to know many…
+          <Description wordLimit={42}>{theNews.description}</Description>
         </Typography>
-        <div className="flex gap-1">
+        <div
+          onClick={() => router.push(`/news/${theNews.id}`)}
+          className="flex cursor-pointer gap-1"
+        >
           <Typography
             variant="noStyle"
             weight="semibold"
