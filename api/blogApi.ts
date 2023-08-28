@@ -11,16 +11,26 @@ async function getAllBlogs(params?: any) {
   return response;
 }
 
-async function getAllPostsOfABlog(blogUUID: string) {
+async function getAllPostsOfABlog(blogUUID: string, params?: any) {
   const response = await ApiFetch<PostType[]>({
     url: 'posts/all',
     method: 'GET',
     params: {
       blogUUID,
+      ...params,
     },
   });
 
   return response;
 }
 
-export { getAllBlogs, getAllPostsOfABlog };
+async function getPostById(id: number) {
+  const response = await ApiFetch<PostType, 'single'>({
+    url: `posts/id/${id}`,
+    method: 'GET',
+  });
+
+  return response;
+}
+
+export { getAllBlogs, getAllPostsOfABlog, getPostById };

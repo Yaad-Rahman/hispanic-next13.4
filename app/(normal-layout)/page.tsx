@@ -2,7 +2,6 @@
 
 import {
   ContactUs,
-  LatestNews,
   Memories,
   SocialMedia,
   UpcomingEvents,
@@ -32,7 +31,7 @@ export default function Home() {
       </div>
       <SocialMedia />
       <UpcomingEvents />
-      <LatestNews />
+      {/* <LatestNews /> */}
       <DJCorner />
       <Memories />
       <ContactUs forPage="home" />

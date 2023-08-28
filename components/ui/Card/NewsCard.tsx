@@ -1,6 +1,7 @@
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/navigation';
 
+import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { PostType } from '@/types/blogType';
 
 import { Description } from '../Description';
@@ -23,7 +24,7 @@ export const NewsCard = ({ theNews }: { theNews: PostType }) => {
           weight="semibold"
           className="text-textColor-lightPink"
         >
-          {theNews.creationDate}
+          {FormatDateTime(theNews.creationDateTimeStamp, 'only-date')}
         </Typography>
         <Heading level={4} weight="semibold">
           {theNews.title}

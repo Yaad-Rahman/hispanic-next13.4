@@ -14,6 +14,7 @@ export { Checkbox } from './Checkbox';
 export { Description } from './Description';
 export { Header } from './Header';
 export { Heading } from './Heading';
+export { HTMLParser } from './HTMLParser';
 export { Input } from './Input';
 export { Link } from './Link';
 export { Modal } from './Modal';

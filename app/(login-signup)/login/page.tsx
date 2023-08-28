@@ -3,9 +3,12 @@
 import { LoginForm } from '@hispanic-forms';
 import { Header, Typography } from '@hispanic-ui';
 
+import { useSignupLogin } from '@/hooks/signupLogin/useSignupLogin';
 import OnlyClient from '@/libs/helpers/OnlyClient';
 
 export default function LoginPage() {
+  const { submitLogin } = useSignupLogin();
+
   return (
     <div>
       <Header variant="titleS" weight="semibold" center>
@@ -16,11 +19,7 @@ export default function LoginPage() {
       </Typography>
       <OnlyClient>
         <div className="mt-8 w-[360px]">
-          <LoginForm
-            onSubmit={() => {
-              console.log('form submitted');
-            }}
-          />
+          <LoginForm onSubmit={submitLogin} />
         </div>
       </OnlyClient>
     </div>

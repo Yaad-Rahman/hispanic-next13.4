@@ -2,6 +2,7 @@ export interface SignupValues {
   name: string;
   email: string;
   password: string;
+  essNumber?: string;
 }
 
 export type FormProps = {

@@ -3,12 +3,14 @@ export interface LoginValues {
   password: string;
 }
 
+export type OnSubmitProps = (
+  values: LoginValues,
+  {
+    setSubmitting,
+    resetForm,
+  }: { setSubmitting: (status: boolean) => void; resetForm: () => void }
+) => void;
+
 export type FormProps = {
-  onSubmit: (
-    values: LoginValues,
-    {
-      setSubmitting,
-      resetForm,
-    }: { setSubmitting: (status: boolean) => void; resetForm: () => void }
-  ) => void;
+  onSubmit: OnSubmitProps;
 };

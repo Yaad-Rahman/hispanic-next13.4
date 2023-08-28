@@ -14,7 +14,7 @@ export const classes = {
     lightBlue: 'bg-button-blue text-white hover:bg-blue-400',
     outlined:
       'border border-primary-200 text-primary-500 hover:border-primary-700 hover:text-primary-700',
-    text: 'font-lexendFont text-sm font-semibold text-button-primary hover:text-primary-700 transition-all',
+    text: 'font-lexendFont text-sm font-semibold text-button-primary hover:text-primary-400 transition-all',
     disabled: 'bg-primary-200 text-primary-800',
   },
 };

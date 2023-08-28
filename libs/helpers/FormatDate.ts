@@ -35,5 +35,7 @@ export const FormatDateTime = (
 
   const formatter = new Intl.DateTimeFormat('en-US', options);
 
-  return formatter.format(date).replace(/,([^,]*)$/, ' •$1');
+  return variant === 'only-date'
+    ? formatter.format(date)
+    : formatter.format(date).replace(/,([^,]*)$/, ' •$1');
 };

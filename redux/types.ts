@@ -1,5 +1,6 @@
+import type { UserType } from '@/types/authType';
+
 export type AuthSliceInitialProps = {
-  token: string;
-  user: {};
+  user: UserType | null;
   authenticated: boolean;
 };

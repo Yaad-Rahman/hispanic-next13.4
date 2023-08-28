@@ -8,7 +8,7 @@ interface ApiFetchProps {
   url: string;
   params?: ParamsTypes | '';
   body?: any;
-  auth?: boolean;
+  authToken?: string;
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
   header?: object;
 }
@@ -20,7 +20,7 @@ export default async function ApiFetch<
   url,
   params = '',
   body = null,
-  auth = false,
+  authToken,
   method,
   header,
 }: ApiFetchProps): Promise<ApiResponse<T, PayloadKeyType>> {
@@ -30,20 +30,24 @@ export default async function ApiFetch<
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL + url}?${urlParams}`,
     {
+      cache: 'reload',
       method,
       headers: {
-        ...(auth && {
-          Authorization: `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbkBkaXNsLmNvbSIsImlhdCI6MTY5MTU2MjM2OSwiZXhwIjoxNjkzNzA5ODUzfQ.tKLcKo11wuYZpIS0kX2F-C8q0FYEEnds408OoDvBU-DR0Kr0WH9uowIByUN8On6BtO-u8RSLy-19dwsg9hR7Yw`,
+        ...(authToken && {
+          Authorization: `Bearer ${authToken}`,
+        }),
+        ...(method === 'POST' && {
+          'Content-Type': 'application/json',
         }),
         ...header,
       },
-      body: method === 'GET' ? null : body,
+      body: method === 'GET' ? null : JSON.stringify(body),
     }
   );
 
   if (!res.ok) {
     // throw new Error('Failed to fetch');
-    console.log('Error to fetch api', res.status);
+    // console.log('Error to fetch api', res.status);
   }
 
   return res.json();

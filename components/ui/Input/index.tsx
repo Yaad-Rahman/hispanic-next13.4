@@ -1,5 +1,6 @@
 'use client';
 
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import React, { useMemo, useState } from 'react';
 
@@ -21,6 +22,7 @@ export const Input = ({
   startIcon,
 }: InputProps) => {
   const [touched, setTouched] = useState(isDirty);
+  const [inputType, setInputType] = useState<InputProps['type']>(type);
 
   const borderClass = useMemo(
     () =>
@@ -55,7 +57,7 @@ export const Input = ({
         <input
           id={id}
           name={name}
-          type={type}
+          type={inputType}
           onChange={raiseOnChange}
           readOnly={readOnly}
           className={clsx(
@@ -63,11 +65,24 @@ export const Input = ({
             borderClass,
             transparent && classes.background.transparent,
             !transparent && classes.background.white,
-            startIcon && 'pl-11'
+            startIcon && 'pl-11',
+            type === 'password' && 'pr-11'
           )}
           placeholder={placeholder}
           value={value}
         />
+        {type === 'password' &&
+          (inputType === 'password' ? (
+            <EyeSlashIcon
+              onClick={() => setInputType('text')}
+              className="absolute right-4 top-[10px] h-6 w-6 cursor-pointer"
+            />
+          ) : (
+            <EyeIcon
+              onClick={() => setInputType('password')}
+              className="absolute right-4 top-[10px] h-6 w-6 cursor-pointer"
+            />
+          ))}
       </div>
       <div className="flex flex-col gap-2">
         {validationError && (

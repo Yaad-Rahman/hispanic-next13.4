@@ -1,8 +1,18 @@
-import { Button, Heading } from '@hispanic-ui';
+import { Button, Heading, NewsCard } from '@hispanic-ui';
+import { useParams } from 'next/navigation';
 
 import { Container } from '@/components/layout/Container';
+import type { PostType } from '@/types/blogType';
 
-export const LatestNews = ({ forNewspage }: { forNewspage?: boolean }) => {
+export const LatestNews = ({
+  forNewspage,
+  news,
+}: {
+  forNewspage?: boolean;
+  news: PostType[];
+}) => {
+  const params = useParams();
+  const { id } = params;
   return (
     <div
       className={`aspect-[1440/943] w-full ${
@@ -30,8 +40,10 @@ export const LatestNews = ({ forNewspage }: { forNewspage?: boolean }) => {
           <Button label="View all" variant="black" />
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
-          {/* <NewsCard />
-          <NewsCard /> */}
+          {forNewspage &&
+            news
+              .filter((f) => f.id !== Number(id))
+              .map((item) => <NewsCard key={item.id} theNews={item} />)}
         </div>
       </Container>
     </div>

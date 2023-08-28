@@ -11,8 +11,8 @@ import {
 } from '@hispanic-ui';
 
 import { EventCategories } from '@/constants/testData';
-import { useEvents } from '@/hooks/events/useEvents';
 import { usePagination } from '@/hooks/usePagination';
+import { useSearch } from '@/hooks/useSearch';
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { PaginationType } from '@/types/commonTypes';
 import type { EventType } from '@/types/eventType';
@@ -26,7 +26,7 @@ export const EventsPage = ({
   events: EventType[];
   pagination: PaginationType;
 }) => {
-  const { searchEvent, handleSearch } = useEvents();
+  const { search, handleSearch } = useSearch('name');
   const { onPageChange } = usePagination();
 
   return (
@@ -44,7 +44,7 @@ export const EventsPage = ({
               }
               name="search"
               placeholder="Search"
-              value={searchEvent}
+              value={search}
               onChange={(event) => handleSearch(event.currentTarget.value)}
             />
           </div>
