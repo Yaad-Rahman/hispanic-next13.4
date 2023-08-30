@@ -1,41 +1,34 @@
-'use client';
+import { cookies } from 'next/headers';
 
-import {
-  ContactUs,
-  LatestNews,
-  Memories,
-  SocialMedia,
-  UpcomingEvents,
-} from '@hispanic-page-ui';
-import { CarouselSlider } from '@hispanic-ui';
+import { getAllPostsOfABlog } from '@/api/blogApi';
+import { getAllEvents } from '@/api/eventsApi';
+import { getAllAlbums } from '@/api/memoriesApi';
+import { HomePage } from '@/components/page/HomePage';
+import { NEWS_BLOGUUID } from '@/constants';
 
-import { Container } from '@/components/layout/Container';
-import { DJCorner } from '@/components/page/homepage/DJCorner';
+export default async function Home() {
+  const cookieStore = cookies();
+  const token = cookieStore.get('token')?.value ?? '';
+  const [upcomingEventsData, latestNewsData, memoriesData] = await Promise.all([
+    getAllEvents(token, {
+      sortBy: 'eventDateTime',
+      ascOrDesc: 'desc',
+    }),
+    getAllPostsOfABlog(NEWS_BLOGUUID, {
+      sortBy: 'creationDate',
+      ascOrDesc: 'desc',
+    }),
+    getAllAlbums({
+      sortBy: 'creationDate',
+      ascOrDesc: 'desc',
+    }),
+  ]);
 
-export default function Home() {
   return (
-    <main>
-      <div
-        className="aspect-[1440/798] w-full pt-defaultPadding"
-        style={{
-          backgroundImage: "url('/images/homepage/headerBg.svg')",
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        }}
-      >
-        <Container>
-          <div className="h-[700px] px-16 sm:h-[500px] sm:px-20">
-            <CarouselSlider />
-          </div>
-        </Container>
-      </div>
-      <SocialMedia />
-      <UpcomingEvents />
-      <LatestNews />
-      <DJCorner />
-      <Memories />
-      <ContactUs forPage="home" />
-    </main>
+    <HomePage
+      latestNews={latestNewsData.payload?.content.slice(0, 2) ?? []}
+      upcomingEvents={upcomingEventsData.payload?.content.slice(0, 3) ?? []}
+      memories={memoriesData.payload?.content.slice(0, 6) ?? []}
+    />
   );
 }

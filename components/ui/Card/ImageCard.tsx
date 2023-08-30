@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { Heading, Typography } from '@hispanic-ui';
 import clsx from 'clsx';
+import React from 'react';
 
 import type { ImageCardType } from './types';
 
@@ -9,9 +10,14 @@ export const ImageCard = ({
   subTitle,
   image,
   height,
-}: ImageCardType) => {
+  onClick,
+}: ImageCardType & { onClick?: (e: React.MouseEvent) => void }) => {
   return (
-    <div className="relative w-full" style={{ height }}>
+    <div
+      onClick={onClick}
+      className="relative w-full cursor-pointer"
+      style={{ height }}
+    >
       <img src={image} alt="card" className="h-full w-full object-cover" />
       <div
         className={clsx(

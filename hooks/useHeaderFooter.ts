@@ -1,7 +1,11 @@
 import { usePathname } from 'next/navigation';
+import { useSelector } from 'react-redux';
+
+import type { RootReducerState } from '@/redux/store';
 
 export const useHeaderFooter = () => {
   const pathName = usePathname();
+  const user = useSelector((state: RootReducerState) => state.auth.user);
 
   const getVariant = (): 'red' | 'blue' | 'red-blue' => {
     switch (pathName) {
@@ -14,5 +18,5 @@ export const useHeaderFooter = () => {
     }
   };
 
-  return { getVariant };
+  return { getVariant, user };
 };

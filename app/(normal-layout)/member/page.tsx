@@ -1,10 +1,12 @@
 'use client';
 
 import { Button, Heading, Typography } from '@hispanic-ui';
+import { useRouter } from 'next/navigation';
 
 import { Container } from '@/components/layout/Container';
 
 export default function Member() {
+  const router = useRouter();
   return (
     <div
       className="pt-defaultPadding"
@@ -26,7 +28,11 @@ export default function Member() {
             <Heading center level={4} color="white" lexend>
               Join via ESS and we take care of the rest.
             </Heading>
-            <Button label="$75/year membership" variant="black" />
+            <Button
+              onClick={() => router.push('/signup')}
+              label="$75/year membership"
+              variant="black"
+            />
             <Typography center size="xl" variant="white">
               Once confirmed, you will get your yearly membership card on one of
               our General Membership Meetings.

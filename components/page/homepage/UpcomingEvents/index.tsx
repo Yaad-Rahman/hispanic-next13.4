@@ -1,15 +1,20 @@
 import { Button, Heading } from '@hispanic-ui';
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 
 import { Container } from '@/components/layout/Container';
 import { EventCard } from '@/components/ui/Card/EventCard';
-import { UpcomingEventsData } from '@/constants/testData';
+import { FormatDateTime } from '@/libs/helpers/FormatDate';
+import type { EventObjectWithTickets } from '@/types/eventType';
 
 export const UpcomingEvents = ({
+  events,
   forEventPage,
 }: {
+  events: EventObjectWithTickets[];
   forEventPage?: boolean;
 }) => {
+  const router = useRouter();
   return (
     <div
       style={
@@ -37,7 +42,11 @@ export const UpcomingEvents = ({
           <Heading level={2.5} color="white" lexend className="mt-3">
             Upcoming Events
           </Heading>
-          <Button label="View all" variant="black" />
+          <Button
+            onClick={() => router.push('/events')}
+            label="View all"
+            variant="black"
+          />
         </div>
         <div
           className={clsx(
@@ -46,16 +55,16 @@ export const UpcomingEvents = ({
             forEventPage && 'sm:grid-cols-2'
           )}
         >
-          {UpcomingEventsData.map((event, index) => (
+          {events.map((eventObj) => (
             <EventCard
-              address={event.address}
-              date={event.date}
-              eventImage={event.eventImage}
-              eventName={event.eventName}
-              isFree={event.isFree}
-              price={event.price}
-              time={event.time}
-              key={index}
+              key={eventObj.event.id}
+              id={eventObj.event.id}
+              address={eventObj.event.venue}
+              date={FormatDateTime(eventObj.event.eventDateTime)}
+              eventImage={eventObj.event.photo.fileUrl}
+              eventName={eventObj.event.name}
+              isFree={!eventObj.event.paid}
+              price={eventObj.ticketValue}
             />
           ))}
         </div>

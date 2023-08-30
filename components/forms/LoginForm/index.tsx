@@ -60,7 +60,7 @@ export const LoginForm = ({ onSubmit }: FormProps) => {
             </div>
           </div>
           <Button
-            loading={true}
+            loading={isSubmitting}
             className="mt-5"
             label="Submit"
             variant="black"

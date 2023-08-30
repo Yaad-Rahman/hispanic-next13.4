@@ -1,20 +1,18 @@
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 
+import { useCreateQueryString } from './useCreateQueryString';
+
 export const usePagination = () => {
-  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const { createQueryString } = useCreateQueryString(searchParams);
 
   const onPageChange = useCallback(
     (page: number) => {
-      router.replace({
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          page,
-        },
-      });
+      createQueryString('page', String(page));
     },
-    [router]
+    [searchParams]
   );
 
   return { onPageChange };

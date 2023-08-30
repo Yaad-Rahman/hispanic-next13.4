@@ -62,6 +62,19 @@ export const SignupForm = ({ onSubmit }: FormProps) => {
               }
               helperText="Must be at least 8 characters."
             />
+            <Input
+              name="essNumber"
+              label="Ess Number (optional)"
+              placeholder="Enter your ess number"
+              onChange={handleChange}
+              value={values.essNumber}
+              isDirty={touched.essNumber}
+              validationError={
+                touched.essNumber && errors.essNumber
+                  ? errors.essNumber
+                  : undefined
+              }
+            />
           </div>
           <Button
             loading={false}

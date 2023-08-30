@@ -7,6 +7,8 @@ export const RadioButton = ({
   name,
   labelTitle,
   labelSubTitle,
+  value,
+  setFieldValue,
 }: RadioButtonType) => {
   const buttonRef = useRef<any>();
   const randomPrefix = useMemo(
@@ -22,7 +24,9 @@ export const RadioButton = ({
         name={name}
         id={id}
         ref={buttonRef}
+        value={value || ''}
         className="h-6 w-6 accent-primary-600"
+        onChange={(event) => setFieldValue(name, event.target.value)}
       />
       <label
         className="cursor-pointer"

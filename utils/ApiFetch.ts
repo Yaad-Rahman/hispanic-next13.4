@@ -8,37 +8,46 @@ interface ApiFetchProps {
   url: string;
   params?: ParamsTypes | '';
   body?: any;
-  auth?: boolean;
+  authToken?: string;
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
   header?: object;
 }
 
-export default async function ApiFetch<T>({
+export default async function ApiFetch<
+  T,
+  PayloadKeyType extends 'single' | 'collection' = 'collection'
+>({
   url,
   params = '',
   body = null,
-  auth = false,
+  authToken,
   method,
   header,
-}: ApiFetchProps): Promise<ApiResponse<T>> {
+}: ApiFetchProps): Promise<ApiResponse<T, PayloadKeyType>> {
   // @ts-ignore
   const urlParams = new URLSearchParams(params).toString();
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL + url}?${urlParams}`,
     {
+      cache: 'reload',
       method,
       headers: {
-        ...(auth && { Authorization: `Bearer ${232332}` }),
+        ...(authToken && {
+          Authorization: `Bearer ${authToken}`,
+        }),
+        ...(method === 'POST' && {
+          'Content-Type': 'application/json',
+        }),
         ...header,
       },
-      body: method === 'GET' ? null : body,
+      body: method === 'GET' ? null : JSON.stringify(body),
     }
   );
 
   if (!res.ok) {
     // throw new Error('Failed to fetch');
-    console.log('Error to fetch api', res.status);
+    // console.log('Error to fetch api', res.status);
   }
 
   return res.json();

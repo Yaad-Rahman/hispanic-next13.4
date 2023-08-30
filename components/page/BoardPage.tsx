@@ -2,11 +2,13 @@
 
 import { ImageCards } from '@hispanic-page-ui';
 import { Button, Heading, Typography } from '@hispanic-ui';
+import { useRouter } from 'next/navigation';
 
 import { Container } from '@/components/layout/Container';
 import type { BoardPageProps } from '@/types/boardType';
 
 export const BoardPage = ({ data }: BoardPageProps) => {
+  const router = useRouter();
   return (
     <div>
       <div className="aspect-[1574/695] w-full bg-[url('/images/board/board-bg.svg')] bg-cover bg-center bg-no-repeat py-28 pt-defaultPadding">
@@ -33,7 +35,12 @@ export const BoardPage = ({ data }: BoardPageProps) => {
                   <img src="/logos/play-circle.svg" alt="circle icon" />
                 }
               />
-              <Button label="Become A Member" variant="blue" size="large" />
+              <Button
+                onClick={() => router.push('/signup')}
+                label="Become A Member"
+                variant="blue"
+                size="large"
+              />
             </div>
           </div>
         </Container>

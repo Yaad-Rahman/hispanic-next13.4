@@ -9,10 +9,12 @@ import { NavMenus } from '@/constants/testData';
 import { useHeaderFooter } from '@/hooks/useHeaderFooter';
 
 import { Container } from '../Container';
+import { LoggedInSection } from './LoggedInSection';
 import { classes } from './styles';
 
 export const Navbar = () => {
-  const { getVariant } = useHeaderFooter();
+  const { getVariant, user } = useHeaderFooter();
+
   const router = useRouter();
   const pathName = usePathname();
   return (
@@ -49,15 +51,23 @@ export const Navbar = () => {
               ))}
             </div>
           </div>
-          <div className="flex gap-8">
-            <Button
-              onClick={() => router.push('/login')}
-              variant="text"
-              label="Log in"
-              className="text-white"
-            />
-            <Button variant="black" label="Sign up" />
-          </div>
+          {user ? (
+            <LoggedInSection user={user} />
+          ) : (
+            <div className="flex gap-8">
+              <Button
+                onClick={() => router.push('/login')}
+                variant="text"
+                label="Log in"
+                className="!font-bold text-white"
+              />
+              <Button
+                onClick={() => router.push('/signup')}
+                variant="black"
+                label="Sign up"
+              />
+            </div>
+          )}
         </div>
       </Container>
     </div>

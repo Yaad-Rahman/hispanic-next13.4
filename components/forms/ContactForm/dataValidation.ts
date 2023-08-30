@@ -19,8 +19,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().email().required(REQUIRED_FIELD_MESSAGE),
   phone: Yup.string().required(REQUIRED_FIELD_MESSAGE),
   message: Yup.string().required(REQUIRED_FIELD_MESSAGE),
-  agreedPolicy: Yup.boolean().required(REQUIRED_FIELD_MESSAGE),
-  password: Yup.string().required(REQUIRED_FIELD_MESSAGE),
+  agreedPolicy: Yup.boolean(),
 });
 
 export { ContactFormInitialValues, validationSchema };
