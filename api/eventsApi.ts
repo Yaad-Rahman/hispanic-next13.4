@@ -1,8 +1,11 @@
-import type { EventType, SingleEventType } from '@/types/eventType';
+import type {
+  EventObjectWithTickets,
+  SingleEventType,
+} from '@/types/eventType';
 import ApiFetch from '@/utils/ApiFetch';
 
 async function getAllEvents(authToken: string, params?: any) {
-  const response = await ApiFetch<EventType[]>({
+  const response = await ApiFetch<EventObjectWithTickets[]>({
     url: 'events/all',
     method: 'GET',
     authToken,

@@ -11,7 +11,6 @@ import {
 } from '@hispanic-ui';
 
 import { Container } from '@/components/layout/Container';
-import { EventCategories } from '@/constants/testData';
 import { usePagination } from '@/hooks/usePagination';
 import { useSearch } from '@/hooks/useSearch';
 import type { PostType } from '@/types/blogType';
@@ -56,7 +55,7 @@ export default function NewsPage({
           />
         </div>
         <div className="py-16">
-          <CategorySelector categories={EventCategories} />
+          <CategorySelector categories={['Recent', 'Top News']} />
         </div>
         {news.length > 0 ? (
           <div className="grid grid-cols-1 gap-16 sm:grid-cols-3">

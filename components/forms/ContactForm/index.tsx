@@ -22,6 +22,7 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
     >
       {({
         values,
+        setFieldValue,
         handleChange,
         handleSubmit,
         errors,
@@ -36,10 +37,12 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
                 label="First name"
                 placeholder="First name"
                 onChange={handleChange}
-                value={values.email}
-                isDirty={touched.email}
+                value={values.firstName}
+                isDirty={touched.firstName}
                 validationError={
-                  touched.email && errors.email ? errors.email : undefined
+                  touched.firstName && errors.firstName
+                    ? errors.firstName
+                    : undefined
                 }
               />
             </div>
@@ -49,10 +52,12 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
                 label="Last name"
                 placeholder="Last name"
                 onChange={handleChange}
-                value={values.email}
-                isDirty={touched.email}
+                value={values.lastName}
+                isDirty={touched.lastName}
                 validationError={
-                  touched.email && errors.email ? errors.email : undefined
+                  touched.lastName && errors.lastName
+                    ? errors.lastName
+                    : undefined
                 }
               />
             </div>
@@ -75,8 +80,8 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
                 name="phone"
                 label="Phone number"
                 // placeholder="Enter email"
-                onChange={() => {}}
-                value={values.email}
+                onChange={(value) => setFieldValue('phone', value)}
+                value={values.phone}
                 // isDirty={touched.email}
                 // validationError={
                 //   touched.email && errors.email ? errors.email : undefined
@@ -102,7 +107,7 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
                 labelClassname="text-gray-500 font-lexendFont"
                 label="You agree to our friendly"
                 name="remember"
-                onChange={() => {}}
+                onChange={(val) => setFieldValue('agreedPolicy', val)}
               />
               <Link
                 href="#"
@@ -113,7 +118,7 @@ export const ContactForm = ({ onSubmit }: FormProps) => {
             </div>
           </div>
           <Button
-            loading={false}
+            loading={isSubmitting}
             className="mt-8"
             label="Send message"
             variant="black"

@@ -26,6 +26,13 @@ export type EventType = {
   lastModifiedDateTimeStamp: number;
 };
 
+export type EventObjectWithTickets = {
+  event: EventType;
+  ticketValue: string;
+  tickets: any[];
+  availableTickets: 50;
+};
+
 export type SingleEventType = {
   event: EventType;
   ticketValue: string;

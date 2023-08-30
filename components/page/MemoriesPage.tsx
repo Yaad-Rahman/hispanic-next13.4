@@ -6,18 +6,29 @@ import {
   Heading,
   ImageCard,
   Input,
+  NotFound,
   Pagination,
 } from '@hispanic-ui';
 import { useRouter } from 'next/navigation';
 
-import { EventCategories } from '@/constants/testData';
+import { usePagination } from '@/hooks/usePagination';
+import { useSearch } from '@/hooks/useSearch';
+import type { PaginationType } from '@/types/commonTypes';
 import type { AlbumType } from '@/types/memoryType';
 
 import { Container } from '../layout/Container';
 
-export const MemoriesPage = ({ albums }: { albums: AlbumType[] }) => {
+export const MemoriesPage = ({
+  albums,
+  pagination,
+}: {
+  albums: AlbumType[];
+  pagination: PaginationType;
+}) => {
   const router = useRouter();
-  console.log('albums', albums);
+  const { search, handleSearch } = useSearch('name');
+  const { onPageChange } = usePagination();
+
   return (
     <div className="bg-[#1A1D37] pt-defaultPadding">
       <div className='w-full bg-[url("/images/wallpapers/memories-bg.png")] bg-cover bg-no-repeat pb-24'>
@@ -33,29 +44,35 @@ export const MemoriesPage = ({ albums }: { albums: AlbumType[] }) => {
                 }
                 name="search"
                 placeholder="Search"
+                value={search}
+                onChange={(event) => handleSearch(event.currentTarget.value)}
               />
             </div>
           </div>
           <div className="py-16">
-            <CategorySelector categories={EventCategories} />
+            <CategorySelector categories={['Recent']} />
           </div>
-          <div className="grid grid-cols-1 gap-x-8 gap-y-16 pb-16 sm:grid-cols-3 ">
-            {albums.map((album, index) => (
-              <ImageCard
-                key={index}
-                image={album.coverPhoto?.fileUrl ?? ''}
-                title={album.name}
-                height={480}
-                onClick={() => router.push(`/memories/${album.id}`)}
-              />
-            ))}
-          </div>
+          {albums.length > 0 ? (
+            <div className="grid grid-cols-1 gap-x-8 gap-y-16 pb-16 sm:grid-cols-3 ">
+              {albums.map((album, index) => (
+                <ImageCard
+                  key={index}
+                  image={album.coverPhoto?.fileUrl ?? ''}
+                  title={album.name}
+                  height={480}
+                  onClick={() => router.push(`/memories/${album.id}`)}
+                />
+              ))}
+            </div>
+          ) : (
+            <NotFound message="No memories found" color="white" />
+          )}
         </Container>
         <Pagination
-          currentPage={2}
-          onPageChange={() => {}}
-          pageSize={5}
-          totalCount={50}
+          currentPage={pagination.currentPage}
+          onPageChange={onPageChange}
+          pageSize={pagination.pageSize}
+          totalCount={pagination.totalCount}
         />
       </div>
     </div>

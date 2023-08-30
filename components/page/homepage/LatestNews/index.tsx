@@ -1,5 +1,5 @@
 import { Button, Heading, NewsCard } from '@hispanic-ui';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 import { Container } from '@/components/layout/Container';
 import type { PostType } from '@/types/blogType';
@@ -12,6 +12,7 @@ export const LatestNews = ({
   news: PostType[];
 }) => {
   const params = useParams();
+  const router = useRouter();
   const { id } = params;
   return (
     <div
@@ -37,13 +38,19 @@ export const LatestNews = ({
           <Heading level={2.5} color="white" lexend className="mt-3">
             {forNewspage ? 'Latest News' : 'Latest News and Acknowledgements'}
           </Heading>
-          <Button label="View all" variant="black" />
+          <Button
+            onClick={() => router.push('/news')}
+            label="View all"
+            variant="black"
+          />
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
           {forNewspage &&
             news
               .filter((f) => f.id !== Number(id))
               .map((item) => <NewsCard key={item.id} theNews={item} />)}
+          {!forNewspage &&
+            news.map((item) => <NewsCard key={item.id} theNews={item} />)}
         </div>
       </Container>
     </div>

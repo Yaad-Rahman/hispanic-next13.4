@@ -11,7 +11,7 @@ export const LoggedInSection = ({ user }: { user: UserType }) => {
       <img
         src={user.displayPhoto?.fileUrl}
         alt="profile"
-        className="h-12 w-12 rounded-full object-cover"
+        className="h-10 w-10 rounded-full object-cover"
       />
       <Typography variant="white" weight="semibold">
         {user.firstName}

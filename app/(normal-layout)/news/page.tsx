@@ -10,6 +10,13 @@ export default async function News({
 }) {
   const newsData = await getAllPostsOfABlog(NEWS_BLOGUUID, {
     title: searchParams?.title ?? '',
+    ...(searchParams?.category === 'Recent' && {
+      sortBy: 'creationDate',
+      ascOrDesc: 'desc',
+    }),
+    ...(searchParams?.category === 'Top News' && {
+      pinned: true,
+    }),
   });
 
   return (

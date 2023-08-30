@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers';
 
-import { getEvent } from '@/api/eventsApi';
-import { getEventTicketCategories } from '@/api/ticketsApi';
+import { getAllEvents, getEvent } from '@/api/eventsApi';
 import { SingleEventPage } from '@/components/page/SingleEventPage';
 
 export default async function SingleEvent({ params }: { params: any }) {
@@ -9,13 +8,14 @@ export default async function SingleEvent({ params }: { params: any }) {
   const cookieStore = cookies();
   const token = cookieStore.get('token')?.value ?? '';
   const eventData = await getEvent(token, id);
-
-  const ticketCategoriesData = await getEventTicketCategories(token, id);
+  const upcomingEventsData = await getAllEvents(token);
 
   return (
     <SingleEventPage
+      upcomingEvents={upcomingEventsData.payload.content.filter(
+        (c) => c.event.id !== 55
+      )}
       event={eventData.payload.event}
-      ticketCategories={ticketCategoriesData.payload}
     />
   );
 }

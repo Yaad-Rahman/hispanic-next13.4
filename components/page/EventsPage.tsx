@@ -15,7 +15,7 @@ import { usePagination } from '@/hooks/usePagination';
 import { useSearch } from '@/hooks/useSearch';
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { PaginationType } from '@/types/commonTypes';
-import type { EventType } from '@/types/eventType';
+import type { EventObjectWithTickets } from '@/types/eventType';
 
 import { Container } from '../layout/Container';
 
@@ -23,12 +23,11 @@ export const EventsPage = ({
   events,
   pagination,
 }: {
-  events: EventType[];
+  events: EventObjectWithTickets[];
   pagination: PaginationType;
 }) => {
   const { search, handleSearch } = useSearch('name');
   const { onPageChange } = usePagination();
-
   return (
     <div className="pt-defaultPadding">
       <img src="/images/homepage/flagRope.svg" alt="flags" className="w-full" />
@@ -54,15 +53,16 @@ export const EventsPage = ({
         </div>
         {events.length > 0 ? (
           <div className="grid grid-cols-1 gap-x-8 gap-y-16 pb-16 sm:grid-cols-3">
-            {events.map((event) => (
+            {events.map((eventObj) => (
               <EventCard
-                id={event.id}
-                address={event.venue}
-                date={FormatDateTime(event.eventDateTime)}
-                eventImage={event.photo.fileUrl}
-                eventName={event.name}
-                isFree={!event.paid}
-                key={event.id}
+                key={eventObj.event.id}
+                id={eventObj.event.id}
+                address={eventObj.event.venue}
+                date={FormatDateTime(eventObj.event.eventDateTime)}
+                eventImage={eventObj.event.photo.fileUrl}
+                eventName={eventObj.event.name}
+                isFree={!eventObj.event.paid}
+                price={eventObj.ticketValue}
               />
             ))}
           </div>

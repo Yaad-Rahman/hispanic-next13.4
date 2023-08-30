@@ -3,4 +3,5 @@ export type ModalType = {
   onClose: () => void;
   children: React.ReactNode;
   actions?: React.ReactNode;
+  variant?: 'card' | 'image';
 };

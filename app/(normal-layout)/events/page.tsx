@@ -14,6 +14,7 @@ export default async function Events({
 
   const eventsData = await getAllEvents(token, {
     name: searchParams?.name ?? '',
+    ...(searchParams?.page && { pageNo: searchParams?.page }),
   });
 
   // pagination

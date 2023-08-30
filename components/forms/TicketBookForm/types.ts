@@ -1,12 +1,9 @@
-import type { TicketCategoryType } from '@/types/ticketType';
-
 export interface TicketBookValues {
   ticketCategoryId: number | null;
   quantity: number;
 }
 
 export type FormProps = {
-  ticketCategories: TicketCategoryType[];
   onSubmit: (
     values: TicketBookValues,
     {

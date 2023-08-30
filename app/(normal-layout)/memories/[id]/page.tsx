@@ -13,8 +13,6 @@ export default async function SingleMemory({
     album = await getAlbum(memories.payload.content[0].albumId);
   }
 
-  console.log('album data', album);
-
   return (
     <SingleMemoryPage
       memories={memories.payload.content}

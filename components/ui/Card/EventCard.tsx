@@ -11,6 +11,7 @@ export const EventCard = ({
   eventImage,
   eventName,
   isFree,
+  price,
 }: EventCardType) => {
   const router = useRouter();
   return (
@@ -61,7 +62,7 @@ export const EventCard = ({
             weight="bold"
             lexend
           >
-            {isFree ? 'FREE' : 'PAID'}
+            {isFree ? 'FREE' : `$${price}`}
           </Typography>
         </div>
       </div>

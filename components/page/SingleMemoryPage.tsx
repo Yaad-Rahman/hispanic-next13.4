@@ -1,11 +1,13 @@
 'use client';
 
 import { Heading, Typography } from '@hispanic-ui';
+import { useState } from 'react';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import type { AlbumType, MemoryType } from '@/types/memoryType';
 
 import { Container } from '../layout/Container';
+import { ImageModal } from './memories/ImageModal';
 
 export const SingleMemoryPage = ({
   memories,
@@ -14,6 +16,7 @@ export const SingleMemoryPage = ({
   memories: MemoryType[];
   album: AlbumType | undefined;
 }) => {
+  const [imageUrl, setimageUrl] = useState<string | null>(null);
   return (
     <div className="py-defaultPadding">
       <Container>
@@ -33,9 +36,11 @@ export const SingleMemoryPage = ({
           columnsCountBreakPoints={{ 450: 1, 750: 2, 1200: 3 }}
           className="mt-10"
         >
-          <Masonry>
+          <Masonry gutter="20px">
             {memories.map((memory) => (
               <img
+                className="cursor-pointer"
+                onClick={() => setimageUrl(memory.image.fileUrl)}
                 key={memory.id}
                 src={memory.image.fileUrl}
                 alt={memory.caption}
@@ -44,6 +49,8 @@ export const SingleMemoryPage = ({
           </Masonry>
         </ResponsiveMasonry>
       </Container>
+
+      <ImageModal imageUrl={imageUrl} setImageUrl={setimageUrl} />
     </div>
   );
 };

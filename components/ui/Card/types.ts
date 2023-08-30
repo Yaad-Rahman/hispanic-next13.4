@@ -5,6 +5,7 @@ export type EventCardType = {
   date: string;
   address: string;
   isFree: boolean;
+  price: string;
 };
 
 export type ImageCardType = {
@@ -12,11 +13,4 @@ export type ImageCardType = {
   subTitle?: string;
   image: string;
   height?: number;
-};
-
-export type LinkCardType = {
-  logo: string;
-  title: string;
-  description: string;
-  link: string;
 };

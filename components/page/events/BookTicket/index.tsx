@@ -6,17 +6,10 @@ import { useState } from 'react';
 import { TicketInfoData } from '@/constants/tsxTestData';
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { EventType } from '@/types/eventType';
-import type { TicketCategoryType } from '@/types/ticketType';
 
 import { TicketInfo } from '../TicketInfo';
 
-export const BookTicket = ({
-  event,
-  ticketCategories,
-}: {
-  event: EventType;
-  ticketCategories: TicketCategoryType[];
-}) => {
+export const BookTicket = ({ event }: { event: EventType }) => {
   const [open, setOpen] = useState<boolean>(false);
   return (
     <div className="rounded-lg bg-white p-6 ">
@@ -35,7 +28,7 @@ export const BookTicket = ({
           </Typography>
         </div>
       </div>
-      <TicketBookForm ticketCategories={ticketCategories} onSubmit={() => {}} />
+      <TicketBookForm onSubmit={() => {}} />
       <div className="my-6">
         <TicketInfo info={TicketInfoData(event)} />
       </div>

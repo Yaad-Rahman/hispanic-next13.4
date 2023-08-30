@@ -5,18 +5,17 @@ import { UpcomingEvents } from '@hispanic-page-ui';
 import { Heading, Typography } from '@hispanic-ui';
 
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
-import type { EventType } from '@/types/eventType';
-import type { TicketCategoryType } from '@/types/ticketType';
+import type { EventObjectWithTickets, EventType } from '@/types/eventType';
 
 import { Container } from '../layout/Container';
 import { BookTicket } from './events/BookTicket';
 
 export const SingleEventPage = ({
   event,
-  ticketCategories,
+  upcomingEvents,
 }: {
   event: EventType;
-  ticketCategories: TicketCategoryType[];
+  upcomingEvents: EventObjectWithTickets[];
 }) => {
   return (
     <div
@@ -58,11 +57,11 @@ export const SingleEventPage = ({
               alt="event location"
             />
             <div className="my-24">
-              <UpcomingEvents forEventPage />
+              <UpcomingEvents events={upcomingEvents} forEventPage />
             </div>
           </div>
           <div className="basis-4/12">
-            <BookTicket event={event} ticketCategories={ticketCategories} />
+            <BookTicket event={event} />
           </div>
         </div>
       </Container>

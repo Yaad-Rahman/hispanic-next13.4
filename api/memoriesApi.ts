@@ -1,10 +1,11 @@
 import type { AlbumType, MemoryType } from '@/types/memoryType';
 import ApiFetch from '@/utils/ApiFetch';
 
-async function getAllAlbums() {
+async function getAllAlbums(params?: any) {
   const response = await ApiFetch<AlbumType[]>({
     url: 'albums/all',
     method: 'GET',
+    params,
   });
 
   return response;
