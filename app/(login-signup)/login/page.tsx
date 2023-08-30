@@ -19,7 +19,7 @@ export default function LoginPage() {
       </Typography>
       <OnlyClient>
         <div className="mt-8 w-[360px]">
-          <LoginForm onSubmit={submitLogin} /
+          <LoginForm onSubmit={submitLogin} />
         </div>
       </OnlyClient>
     </div>
