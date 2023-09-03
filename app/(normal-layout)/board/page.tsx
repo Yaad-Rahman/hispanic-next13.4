@@ -16,8 +16,8 @@ export default async function Board() {
   const dataPromises = categories.map(async (category) => {
     const membersResponse = await getAllBoardMembers(category.id);
     if (
-      membersResponse.payload.content &&
-      membersResponse.payload.content.length > 0
+      membersResponse.payload?.content &&
+      membersResponse.payload?.content.length > 0
     ) {
       return {
         category: category.name,
