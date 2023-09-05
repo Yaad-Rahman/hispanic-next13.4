@@ -1,16 +1,37 @@
 // eslint-disable-next-line import/no-cycle
 import { TicketBookForm } from '@hispanic-forms';
 import { Button, Heading, Modal, Typography } from '@hispanic-ui';
-import { useState } from 'react';
+import { useRef } from 'react';
 
 import { TicketInfoData } from '@/constants/tsxTestData';
+import { useTicketBooking } from '@/hooks/ticket/useTicketBooking';
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { EventType } from '@/types/eventType';
+import type { TicketCounterListType } from '@/types/ticketType';
 
 import { TicketInfo } from '../TicketInfo';
 
-export const BookTicket = ({ event }: { event: EventType }) => {
-  const [open, setOpen] = useState<boolean>(false);
+export const BookTicket = ({
+  event,
+  ticketCounterList,
+}: {
+  event: EventType;
+  ticketCounterList: TicketCounterListType[];
+}) => {
+  const bookFormRef = useRef<any>(null);
+
+  const {
+    modalOpen,
+    setModalOpen,
+    ticketPrice,
+    ticketQuantity,
+    handleData,
+    SubmitFormikData,
+    SubmitTicket,
+  } = useTicketBooking({
+    event,
+  });
+
   return (
     <div className="rounded-lg bg-white p-6 ">
       <div className="flex items-center gap-5">
@@ -28,25 +49,40 @@ export const BookTicket = ({ event }: { event: EventType }) => {
           </Typography>
         </div>
       </div>
-      <TicketBookForm onSubmit={() => {}} />
+      <TicketBookForm
+        ref={bookFormRef}
+        ticketCounterList={ticketCounterList}
+        handleData={handleData}
+        onSubmit={SubmitFormikData}
+      />
       <div className="my-6">
-        <TicketInfo info={TicketInfoData(event)} />
+        <TicketInfo
+          info={TicketInfoData(event, String(ticketQuantity), ticketPrice)}
+        />
       </div>
       <Button
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setModalOpen(true);
+          bookFormRef.current?.submit();
+        }}
         variant="black"
         size="large"
         label="Make Reservation"
         fullWidth
       />
       <Modal
-        isOpen={open}
+        isOpen={modalOpen}
         onClose={() => {
-          setOpen(false);
+          setModalOpen(false);
         }}
         actions={
           <div className="flex gap-5">
-            <Button variant="outlined" label="Pay later" fullWidth />
+            <Button
+              onClick={() => SubmitTicket('PAY_LATER')}
+              variant="outlined"
+              label="Pay later"
+              fullWidth
+            />
             <Button variant="black" label="Pay now" fullWidth />
           </div>
         }

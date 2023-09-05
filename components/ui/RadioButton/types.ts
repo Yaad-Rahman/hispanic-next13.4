@@ -3,5 +3,4 @@ export type RadioButtonType = {
   labelTitle: string;
   labelSubTitle?: string;
   value: string | number | null;
-  setFieldValue: (field: string, value: any) => void;
 };

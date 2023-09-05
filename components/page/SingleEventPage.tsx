@@ -6,6 +6,7 @@ import { Heading, Typography } from '@hispanic-ui';
 
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { EventObjectWithTickets, EventType } from '@/types/eventType';
+import type { TicketCounterListType } from '@/types/ticketType';
 
 import { Container } from '../layout/Container';
 import { BookTicket } from './events/BookTicket';
@@ -13,9 +14,11 @@ import { BookTicket } from './events/BookTicket';
 export const SingleEventPage = ({
   event,
   upcomingEvents,
+  ticketCounterList,
 }: {
   event: EventType;
   upcomingEvents: EventObjectWithTickets[];
+  ticketCounterList: TicketCounterListType[];
 }) => {
   return (
     <div
@@ -61,7 +64,7 @@ export const SingleEventPage = ({
             </div>
           </div>
           <div className="basis-4/12">
-            <BookTicket event={event} />
+            <BookTicket ticketCounterList={ticketCounterList} event={event} />
           </div>
         </div>
       </Container>

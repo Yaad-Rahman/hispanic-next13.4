@@ -10,7 +10,12 @@ import {
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
 import type { EventType } from '@/types/eventType';
 
-const TicketInfoData = (event: EventType) => [
+const TicketInfoData = (
+  event: EventType,
+  quantity?: string,
+  price?: number,
+  ticketType?: string
+) => [
   {
     icon: <CalendarDaysIcon className="h-6 w-6" />,
     key: 'Event Date',
@@ -29,17 +34,17 @@ const TicketInfoData = (event: EventType) => [
   {
     icon: <TicketIcon className="h-6 w-6" />,
     key: 'Ticket Type',
-    value: 'Regular',
+    value: ticketType || 'Regular',
   },
   {
     icon: <QueueListIcon className="h-6 w-6" />,
     key: 'Ticket Quantity',
-    value: '---',
+    value: quantity || '---',
   },
   {
     icon: <CurrencyDollarIcon className="h-6 w-6" />,
     key: 'Total Amount',
-    value: '---',
+    value: `$${(price || 0) * Number(quantity)}` || '---',
   },
 ];
 

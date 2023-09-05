@@ -81,7 +81,7 @@ export const useSignupLogin = () => {
           resetForm();
           router.push(redirectUrl ?? '/');
           toast.update(loading, {
-            render: 'Logged In',
+            render: `Welcome back ${response.payload.user.firstName}`,
             type: 'success',
             isLoading: false,
             autoClose: 3000,
