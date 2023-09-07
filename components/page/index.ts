@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 export { ImageCards } from './board/ImageCards';
 export { BookTicket } from './events/BookTicket';
 export { TicketInfo } from './events/TicketInfo';

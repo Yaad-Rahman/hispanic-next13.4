@@ -16,7 +16,7 @@ function decryptData(encryptedData: string): any | null {
       return decryptedData;
     }
   } catch (error) {
-    console.error('Error decrypting data:', error);
+    // console.error('Error decrypting data:', error);
   }
   return null;
 }

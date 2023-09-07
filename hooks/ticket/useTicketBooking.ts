@@ -28,7 +28,6 @@ export const useTicketBooking = ({ event }: { event: EventType }) => {
 
   // formik form request
   const SubmitFormikData = (values: TicketBookValues) => {
-    console.log('submit formik data', values);
     setTicketBookingValues(values);
   };
 
