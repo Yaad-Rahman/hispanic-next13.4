@@ -20,6 +20,7 @@ export const useTicketBooking = ({ event }: { event: EventType }) => {
   const token = getCookie('token') ?? '';
   const { id } = params;
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [showPayment, setShowPayment] = useState<boolean>(false);
   const [ticket, setTicket] = useState<TicketCounterListType | undefined>();
   const [ticketPrice, setTicketPrice] = useState<number>(0);
   const [ticketQuantity, setTicketQuantity] = useState<number>(0);
@@ -32,7 +33,10 @@ export const useTicketBooking = ({ event }: { event: EventType }) => {
   };
 
   // book ticket api
-  const SubmitTicket = async (paymentType: 'PAY_LATER' | 'BOOKED') => {
+  const SubmitTicket = async (
+    paymentType: 'PAY_LATER' | 'BOOKED',
+    squareToken: string = ''
+  ) => {
     const loading = toast.loading('Booking...');
     if (ticket) {
       const data: PostBookTicketType = {
@@ -46,7 +50,7 @@ export const useTicketBooking = ({ event }: { event: EventType }) => {
         ticketStatus: event.paid ? paymentType : 'FREE',
         tokenRequest: {
           currencyType: 'USD',
-          token: paymentType === 'PAY_LATER' ? null : 'token token',
+          token: paymentType === 'PAY_LATER' ? null : squareToken,
         },
       };
 
@@ -70,14 +74,15 @@ export const useTicketBooking = ({ event }: { event: EventType }) => {
               encryptData(ticketData)
             )}`
           );
+        } else {
+          toast.update(loading, {
+            render: response.message ?? DEFAULT_ERROR_MESSAGE,
+            type: 'error',
+            isLoading: false,
+            autoClose: 3000,
+            closeOnClick: true,
+          });
         }
-        toast.update(loading, {
-          render: response.message ?? DEFAULT_ERROR_MESSAGE,
-          type: 'error',
-          isLoading: false,
-          autoClose: 3000,
-          closeOnClick: true,
-        });
       } catch (error: any) {
         toast.update(loading, {
           render: error.message ?? DEFAULT_ERROR_MESSAGE,
@@ -118,6 +123,8 @@ export const useTicketBooking = ({ event }: { event: EventType }) => {
   };
 
   return {
+    showPayment,
+    setShowPayment,
     modalOpen,
     setModalOpen,
     ticketPrice,

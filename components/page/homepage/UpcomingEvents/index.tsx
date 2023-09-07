@@ -65,6 +65,10 @@ export const UpcomingEvents = ({
               eventName={eventObj.event.name}
               isFree={!eventObj.event.paid}
               price={eventObj.ticketValue}
+              isPurchased={
+                eventObj.tickets ? eventObj.tickets?.length > 0 : false
+              }
+              onClickViewAll={() => {}}
             />
           ))}
         </div>

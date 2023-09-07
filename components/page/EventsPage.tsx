@@ -11,6 +11,7 @@ import {
 } from '@hispanic-ui';
 
 import { EventCategories } from '@/constants/testData';
+import { useEvents } from '@/hooks/events/useEvents';
 import { usePagination } from '@/hooks/usePagination';
 import { useSearch } from '@/hooks/useSearch';
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
@@ -18,6 +19,7 @@ import type { PaginationType } from '@/types/commonTypes';
 import type { EventObjectWithTickets } from '@/types/eventType';
 
 import { Container } from '../layout/Container';
+import { ViewTicketsModal } from './events/ViewTicketsModal';
 
 export const EventsPage = ({
   events,
@@ -28,6 +30,10 @@ export const EventsPage = ({
 }) => {
   const { search, handleSearch } = useSearch('name');
   const { onPageChange } = usePagination();
+
+  const { selectedEvent, setSelectedEvent, handleTicketViewAll } =
+    useEvents(events);
+
   return (
     <div className="pt-defaultPadding">
       <img src="/images/homepage/flagRope.svg" alt="flags" className="w-full" />
@@ -63,6 +69,10 @@ export const EventsPage = ({
                 eventName={eventObj.event.name}
                 isFree={!eventObj.event.paid}
                 price={eventObj.ticketValue}
+                isPurchased={
+                  eventObj.tickets ? eventObj.tickets?.length > 0 : false
+                }
+                onClickViewAll={handleTicketViewAll}
               />
             ))}
           </div>
@@ -81,6 +91,16 @@ export const EventsPage = ({
         alt="design"
         className="my-24 w-full"
       />
+
+      {/* view tickets modal of an event */}
+
+      {selectedEvent && (
+        <ViewTicketsModal
+          isOpen={!!selectedEvent}
+          event={selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
     </div>
   );
 };

@@ -6,6 +6,8 @@ export type EventCardType = {
   address: string;
   isFree: boolean;
   price: string;
+  isPurchased: boolean;
+  onClickViewAll: (id: number) => void;
 };
 
 export type ImageCardType = {

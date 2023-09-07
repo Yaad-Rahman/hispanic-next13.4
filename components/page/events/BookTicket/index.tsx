@@ -2,7 +2,9 @@
 import { TicketBookForm } from '@hispanic-forms';
 import { Button, Heading, Modal, Typography } from '@hispanic-ui';
 import { useRef } from 'react';
+import { CreditCard, PaymentForm } from 'react-square-web-payments-sdk';
 
+import { SQUARE_SANDBOX_API_KEY } from '@/constants';
 import { TicketInfoData } from '@/constants/tsxTestData';
 import { useTicketBooking } from '@/hooks/ticket/useTicketBooking';
 import { FormatDateTime } from '@/libs/helpers/FormatDate';
@@ -21,6 +23,8 @@ export const BookTicket = ({
   const bookFormRef = useRef<any>(null);
 
   const {
+    showPayment,
+    setShowPayment,
     modalOpen,
     setModalOpen,
     ticketPrice,
@@ -74,22 +78,43 @@ export const BookTicket = ({
         isOpen={modalOpen}
         onClose={() => {
           setModalOpen(false);
+          setShowPayment(false);
         }}
         actions={
-          <div className="flex gap-5">
-            <Button
-              onClick={() => SubmitTicket('PAY_LATER')}
-              variant="outlined"
-              label="Pay later"
-              fullWidth
-            />
-            <Button variant="black" label="Pay now" fullWidth />
-          </div>
+          !showPayment ? (
+            <div className="flex gap-5">
+              <Button
+                onClick={() => SubmitTicket('PAY_LATER')}
+                variant="outlined"
+                label="Pay later"
+                fullWidth
+              />
+              <Button
+                onClick={() => setShowPayment(true)}
+                variant="black"
+                label="Pay now"
+                fullWidth
+              />
+            </div>
+          ) : undefined
         }
       >
-        <Heading level={3} className="w-[516px]" center lexend>
-          Do you want to make the reservation?
-        </Heading>
+        {showPayment ? (
+          <PaymentForm
+            locationId="LID"
+            applicationId={SQUARE_SANDBOX_API_KEY}
+            cardTokenizeResponseReceived={(token) =>
+              // console.info({ token, buyer })
+              SubmitTicket('BOOKED', token.token)
+            }
+          >
+            <CreditCard />
+          </PaymentForm>
+        ) : (
+          <Heading level={3} className="w-[516px]" center lexend>
+            Do you want to make the reservation?
+          </Heading>
+        )}
       </Modal>
     </div>
   );

@@ -1,4 +1,5 @@
 import type { AddressType, ImageType } from './commonTypes';
+import type { TicketType } from './ticketType';
 
 export type EventType = {
   createdBy: string;
@@ -29,7 +30,7 @@ export type EventType = {
 export type EventObjectWithTickets = {
   event: EventType;
   ticketValue: string;
-  tickets: any[];
+  tickets: TicketType[] | null;
   availableTickets: 50;
 };
 

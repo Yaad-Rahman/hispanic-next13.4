@@ -7,6 +7,25 @@ export type URLTicketType = {
   totalAmount: number;
 };
 
+export type TicketType = {
+  createdBy: string;
+  creationDate: string;
+  lastModifiedBy: string;
+  lastModifiedDate: string;
+  id: number;
+  ticketUUID: string;
+  eventId: number;
+  userId: number;
+  ticketCategoryId: number;
+  categoryName: string;
+  price: number;
+  ticketStatus: PostBookTicketType['ticketStatus'];
+  creationDateTimeStamp: number;
+  creationDateTimetoInstant: number;
+  lastModifiedDateTimetoInstant: number;
+  lastModifiedDateTimeStamp: number;
+};
+
 export type TicketCategoryType = {
   createdBy: string;
   creationDate: string;

@@ -1,5 +1,6 @@
 import { useRouter } from 'next/navigation';
 
+import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Typography } from '../Typography';
 import type { EventCardType } from './types';
@@ -12,6 +13,8 @@ export const EventCard = ({
   eventName,
   isFree,
   price,
+  isPurchased,
+  onClickViewAll,
 }: EventCardType) => {
   const router = useRouter();
   return (
@@ -54,16 +57,24 @@ export const EventCard = ({
               {address}
             </Typography>
           </div>
-
-          <Typography
-            variant={isFree ? 'medium' : 'noStyle'}
-            size="xl"
-            className={isFree ? undefined : 'text-amber-600'}
-            weight="bold"
-            lexend
-          >
-            {isFree ? 'FREE' : `$${price}`}
-          </Typography>
+          {isPurchased ? (
+            <Button
+              onClick={() => onClickViewAll(id)}
+              label="View Tickets"
+              variant="black"
+              size="xs"
+            />
+          ) : (
+            <Typography
+              variant={isFree ? 'medium' : 'noStyle'}
+              size="xl"
+              className={isFree ? undefined : 'text-amber-600'}
+              weight="bold"
+              lexend
+            >
+              {isFree ? 'FREE' : `$${price}`}
+            </Typography>
+          )}
         </div>
       </div>
     </div>
