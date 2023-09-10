@@ -31,8 +31,13 @@ export const EventsPage = ({
   const { search, handleSearch } = useSearch('name');
   const { onPageChange } = usePagination();
 
-  const { selectedEvent, setSelectedEvent, handleTicketViewAll } =
-    useEvents(events);
+  const {
+    downloading,
+    selectedEvent,
+    setSelectedEvent,
+    handleTicketViewAll,
+    handleDownloadTicket,
+  } = useEvents(events);
 
   return (
     <div className="pt-defaultPadding">
@@ -96,6 +101,8 @@ export const EventsPage = ({
 
       {selectedEvent && (
         <ViewTicketsModal
+          downloading={downloading}
+          handleDownloadTicket={handleDownloadTicket}
           isOpen={!!selectedEvent}
           event={selectedEvent}
           onClose={() => setSelectedEvent(null)}

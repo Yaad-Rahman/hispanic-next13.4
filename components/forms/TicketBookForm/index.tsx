@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { TicketQuantity } from '@hispanic-page-ui';
-import { RadioButton, Typography } from '@hispanic-ui';
+import { NotFound, RadioButton, Typography } from '@hispanic-ui';
 import type { FormikProps } from 'formik';
 import { Formik } from 'formik';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
@@ -33,15 +33,24 @@ export const TicketBookForm = forwardRef(
                 className="flex gap-[22px] rounded-lg bg-primary-25 px-4 py-3"
                 role="group"
               >
-                {ticketCounterList.map((ticket) => (
-                  <RadioButton
-                    key={ticket.id}
-                    name="ticketCategoryId"
-                    value={ticket.ticketCategoryId}
-                    labelTitle={ticket.ticketCategoryName}
-                    labelSubTitle={`$${ticket.price}`}
+                {ticketCounterList.length > 0 ? (
+                  ticketCounterList
+                    .filter((t) => t.totalAvailable > 0)
+                    .map((ticket) => (
+                      <RadioButton
+                        key={ticket.id}
+                        name="ticketCategoryId"
+                        value={ticket.ticketCategoryId}
+                        labelTitle={ticket.ticketCategoryName}
+                        labelSubTitle={`$${ticket.price}`}
+                      />
+                    ))
+                ) : (
+                  <NotFound
+                    message="Sorry! No tickets available"
+                    color="black"
                   />
-                ))}
+                )}
               </div>
             </div>
 

@@ -1,6 +1,7 @@
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import ReactDOM from 'react-dom';
 
+import { Button } from '../Button';
 import type { ModalType } from './types';
 
 export const Modal = ({
@@ -21,12 +22,9 @@ export const Modal = ({
     >
       {variant === 'image' ? (
         <div className="relative">
-          <button
-            className="absolute right-3 top-5 rounded-full bg-gray-300"
-            onClick={onClose}
-          >
-            <XMarkIcon className="h-6 w-6" />
-          </button>
+          <div className="absolute top-4 flex w-full justify-center">
+            <Button label="Close" onClick={onClose} variant="black" size="xs" />
+          </div>
           {children}
         </div>
       ) : (

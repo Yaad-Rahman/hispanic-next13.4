@@ -65,6 +65,7 @@ export const BookTicket = ({
         />
       </div>
       <Button
+        disabled={!ticketQuantity || !ticketPrice}
         onClick={() => {
           setModalOpen(true);
           bookFormRef.current?.submit();

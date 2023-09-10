@@ -1,6 +1,6 @@
 export const classes = {
   default: 'font-bold font-lexendFont text-lg rounded-lg transition-all',
-  disabled: 'pointer-events-none opacity-80',
+  disabled: 'pointer-events-none opacity-80 bg-gray-700',
   size: {
     xs: 'py-1 px-4',
     small: 'py-2.5 px-[18px]',
