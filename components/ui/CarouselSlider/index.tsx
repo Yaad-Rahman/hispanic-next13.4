@@ -2,6 +2,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useRouter } from 'next/navigation';
 import type { Settings } from 'react-slick';
 import Slider from 'react-slick';
 
@@ -23,6 +24,7 @@ const NextButton = (props: any) => (
 );
 
 export const CarouselSlider = () => {
+  const router = useRouter();
   const settings: Settings = {
     dots: true,
     dotsClass: 'slick-dots mt-[20px]',
@@ -54,13 +56,19 @@ export const CarouselSlider = () => {
             </Typography>
             <div className="mt-12 flex flex-col gap-3 sm:flex-row">
               <Button
+                onClick={() => router.push('/about')}
                 label="Learn More"
                 variant="white"
                 startIcon={
                   <img src="/logos/play-circle.svg" alt="circle icon" />
                 }
               />
-              <Button label="Become A Member" variant="blue" size="large" />
+              <Button
+                onClick={() => router.push('/member')}
+                label="Become A Member"
+                variant="blue"
+                size="large"
+              />
             </div>
           </div>
           <div>
@@ -71,12 +79,6 @@ export const CarouselSlider = () => {
             />
           </div>
         </div>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>2</h3>
       </div>
     </Slider>
   );

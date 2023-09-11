@@ -39,3 +39,15 @@ export const FormatDateTime = (
     ? formatter.format(date)
     : formatter.format(date).replace(/,([^,]*)$/, ' •$1');
 };
+
+export const FormatDateToTimestamp = (date: string) => {
+  const timestamp = new Date(date).getTime() / 1000;
+
+  return timestamp;
+};
+
+export const FormatDateToInputValue = (date: string) => {
+  const value = new Date(date).toISOString().substring(0, 10);
+
+  return value;
+};

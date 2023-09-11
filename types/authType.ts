@@ -1,5 +1,25 @@
 import type { ImageType } from './commonTypes';
 
+export type FileUploadResponse = {
+  createdBy: string;
+  creationDate: string;
+  creationDateTimeStamp: number;
+  creationDateTimetoInstant: number;
+  deleted: boolean;
+  fileExtension: string;
+  fileKey: string;
+  fileName: string;
+  fileType: string;
+  fileUrl: string;
+  id: number;
+  lastModifiedBy: string;
+  lastModifiedDate: string;
+  lastModifiedDateTimeStamp: number;
+  lastModifiedDateTimetoInstant: number;
+  mimeType: string;
+  uploadType: string;
+};
+
 export type RoleType = {
   createdBy: string;
   creationDate: string;
@@ -31,6 +51,33 @@ export type PrivilegeType = {
   lastModifiedDateTimeStamp: number;
 };
 
+export type UserDetailsType = {
+  createdBy: string;
+  creationDate: string;
+  lastModifiedBy: string;
+  lastModifiedDate: string;
+  id: number;
+  phone: string;
+  dateOfBirth: number;
+  userId: number;
+  essNumber: string;
+  shield: string;
+  cmdCode: string;
+  cmdCodeDescription: string;
+  borough: string;
+  rank: string;
+  emailAlternative: string;
+  beneficiary: string;
+  delegate_name: string;
+  appointedDate: number;
+  lastPromotionDate: number;
+  activeOrRetired: 'ACTIVE' | 'RETIRED';
+  creationDateTimeStamp: number;
+  creationDateTimetoInstant: number;
+  lastModifiedDateTimetoInstant: number;
+  lastModifiedDateTimeStamp: number;
+};
+
 export type UserType = {
   createdBy: string;
   creationDate: string;
@@ -39,7 +86,7 @@ export type UserType = {
   id: number;
   email: string;
   firstName: string;
-  middleName: null;
+  middleName: string;
   lastName: string;
   roles: RoleType[];
   displayPhoto: ImageType | null;
@@ -57,4 +104,10 @@ export interface SignInPayloadType {
   tokenType: string;
   refreshToken: string;
   user: UserType;
+}
+
+export interface GetUserInfoType {
+  user: UserType;
+  userDetails: UserDetailsType;
+  addressList: null;
 }

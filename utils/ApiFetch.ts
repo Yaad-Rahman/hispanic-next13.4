@@ -11,6 +11,7 @@ interface ApiFetchProps {
   authToken?: string;
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
   header?: object;
+  isFormData?: boolean;
 }
 
 export default async function ApiFetch<
@@ -23,25 +24,37 @@ export default async function ApiFetch<
   authToken,
   method,
   header,
+  isFormData = false,
 }: ApiFetchProps): Promise<ApiResponse<T, PayloadKeyType>> {
   // @ts-ignore
   const urlParams = new URLSearchParams(params).toString();
 
+  let requestBody = null;
+
+  if (method !== 'GET') {
+    if (isFormData) {
+      requestBody = body;
+    } else {
+      requestBody = JSON.stringify(body);
+    }
+  }
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL + url}?${urlParams}`,
     {
-      cache: 'reload',
+      cache: 'no-store',
       method,
       headers: {
         ...(authToken && {
           Authorization: `Bearer ${authToken}`,
         }),
-        ...(method === 'POST' && {
-          'Content-Type': 'application/json',
-        }),
+        ...((method === 'POST' || method === 'PUT') &&
+          !isFormData && {
+            'Content-Type': 'application/json',
+          }),
         ...header,
       },
-      body: method === 'GET' ? null : JSON.stringify(body),
+      body: requestBody,
     }
   );
 
