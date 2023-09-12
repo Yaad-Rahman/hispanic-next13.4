@@ -60,7 +60,7 @@ export const SignupForm = ({ onSubmit }: FormProps) => {
                   ? errors.password
                   : undefined
               }
-              helperText="Must be at least 8 characters."
+              helperText="Must be at least 6 characters including at least one digit and one special character."
             />
             <Input
               name="essNumber"

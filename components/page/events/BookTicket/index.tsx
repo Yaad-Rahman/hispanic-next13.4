@@ -104,9 +104,9 @@ export const BookTicket = ({
           <PaymentForm
             locationId="LID"
             applicationId={SQUARE_SANDBOX_API_KEY}
-            cardTokenizeResponseReceived={(token) =>
+            cardTokenizeResponseReceived={({ token }) =>
               // console.info({ token, buyer })
-              SubmitTicket('BOOKED', token.token)
+              SubmitTicket('BOOKED', token)
             }
           >
             <CreditCard />

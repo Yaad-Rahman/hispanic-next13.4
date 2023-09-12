@@ -42,7 +42,7 @@ export const useSignupLogin = () => {
         });
       } else {
         toast.update(loading, {
-          render: DEFAULT_ERROR_MESSAGE,
+          render: response.message || DEFAULT_ERROR_MESSAGE,
           type: 'error',
           isLoading: false,
           autoClose: 3000,

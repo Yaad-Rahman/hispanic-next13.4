@@ -1,0 +1,23 @@
+export type SubscriptionType = {
+  cardNumber: string;
+  createdBy: string;
+  creationDate: string;
+  creationDateTimeStamp: number;
+  creationDateTimetoInstant: number;
+  expirationDate: string;
+  expirationDateEpoc: number;
+  id: number;
+  lastModifiedBy: string;
+  lastModifiedDate: string;
+  lastModifiedDateTimeStamp: number;
+  lastModifiedDateTimetoInstant: number;
+  paymentDate: string;
+  paymentDateEpoc: number;
+  paymentType: 'CASH' | 'ONLINE';
+  subscribedBy: 'USER' | 'ADMIN';
+  subscriberEmail: string;
+  subscriberName: string;
+  subscriptionFee: number;
+  subscriptionStatus: 'ACTIVE' | 'EXPIRING' | 'EXPIRED';
+  userId: number;
+};

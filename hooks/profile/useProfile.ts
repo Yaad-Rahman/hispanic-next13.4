@@ -1,5 +1,6 @@
 import { getCookie } from 'cookies-next';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
@@ -7,14 +8,26 @@ import {
   updateUserProfilePicture,
   uploadProfilePicture,
 } from '@/api/authApi';
+import {
+  getCurrentUserSubscription,
+  postSubscription,
+} from '@/api/subscriptionApi';
 import type { ProfileFormValues } from '@/components/forms/ProfileForm/types';
 import { DEFAULT_ERROR_MESSAGE } from '@/constants';
 import { FormatDateToTimestamp } from '@/libs/helpers/FormatDate';
 import { setUser } from '@/redux/slices/authSlice';
+import type { RootReducerState } from '@/redux/store';
+import type { SubscriptionType } from '@/types/subscriptionType';
 
 export const useProfile = () => {
+  const currentUser = useSelector((state: RootReducerState) => state.auth.user);
   const token = getCookie('token') ?? '';
   const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [subscription, setSubscription] = useState<SubscriptionType | null>(
+    null
+  );
+
   const submitUpdateProfile = async (
     values: ProfileFormValues,
     {
@@ -111,5 +124,86 @@ export const useProfile = () => {
     }
   };
 
-  return { submitUpdateProfile };
+  // get current subscription of user
+  const fetchSubscription = async () => {
+    try {
+      const response = await getCurrentUserSubscription(token);
+      if (response.success) {
+        setSubscription(response.payload);
+      } else {
+        console.log('fetch of subscription failed');
+      }
+    } catch (error: any) {
+      console.error('Something gone wrong', error.message);
+    }
+  };
+
+  // create subscription of current user
+  const submitSubscription = async ({
+    cardNumber,
+    cardToken,
+  }: {
+    cardNumber: string;
+    cardToken: string;
+  }) => {
+    const loading = toast.loading('loading...');
+    const data = {
+      cardNumber,
+      endDate: Math.floor(
+        new Date().setFullYear(new Date().getFullYear() + 1) / 1000
+      ),
+      paymentType: 'ONLINE',
+      startDate: Math.floor(Date.now() / 1000),
+      // subscriptionId: 0,
+      tokenRequest: {
+        currencyType: 'USD',
+        token: cardToken,
+      },
+      userId: currentUser?.id,
+    };
+
+    try {
+      const response = await postSubscription(token, data);
+      if (response.success) {
+        fetchSubscription();
+        toast.update(loading, {
+          render: 'Subscription Successful',
+          type: 'success',
+          isLoading: false,
+          autoClose: 3000,
+          closeOnClick: true,
+        });
+        setOpenModal(false);
+      } else {
+        toast.update(loading, {
+          render: response.message || DEFAULT_ERROR_MESSAGE,
+          type: 'error',
+          isLoading: false,
+          autoClose: 3000,
+          closeOnClick: true,
+        });
+      }
+    } catch (error: any) {
+      toast.update(loading, {
+        render: error.message || DEFAULT_ERROR_MESSAGE,
+        type: 'error',
+        isLoading: false,
+        autoClose: 3000,
+        closeOnClick: true,
+      });
+    }
+  };
+
+  // calling use effect
+  useEffect(() => {
+    fetchSubscription();
+  }, []);
+
+  return {
+    openModal,
+    setOpenModal,
+    submitUpdateProfile,
+    subscription,
+    submitSubscription,
+  };
 };

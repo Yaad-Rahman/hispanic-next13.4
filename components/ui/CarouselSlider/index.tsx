@@ -39,8 +39,8 @@ export const CarouselSlider = () => {
   return (
     <Slider {...settings}>
       <div>
-        <div className="flex items-center justify-between">
-          <div className="w-[538px]">
+        <div className="flex flex-col-reverse items-center justify-between sm:flex-row">
+          <div className="sm:w-[538px]">
             <Heading level={0.5} color="white" className="!tracking-[-1.12px]">
               Welcome to the NYPD Hispanic Society
             </Heading>
@@ -75,7 +75,7 @@ export const CarouselSlider = () => {
             <img
               src="/logos/main-logo.svg"
               alt="main logo"
-              className="object-contain"
+              className="w-[100px] object-contain sm:w-auto"
             />
           </div>
         </div>
