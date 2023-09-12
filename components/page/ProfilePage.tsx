@@ -33,7 +33,7 @@ export const ProfilePage = ({
 
   return (
     <Container>
-      <div className="flex gap-28 pt-defaultPadding">
+      <div className="flex flex-col gap-28 pt-defaultPadding sm:flex-row">
         <div className="basis-2/3 rounded-lg bg-white p-7 shadow-lg">
           <Heading level={4} lexend center>
             Personal Details
